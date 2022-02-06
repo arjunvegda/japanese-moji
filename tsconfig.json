@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": ["es2017", "es2020"],
+    "strict": true,
+    "importsNotUsedAsValues": "error",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "declaration": true,
+    "declarationDir": "build",
+    "sourceMap": true,
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./src",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["node_modules/@types/", "@types"],
+    "rootDir": "./src",
+    "outDir": "build",
+    "noEmit": true
+  },
+  "include": ["./src/**/*", "__tests__/**/*"],
+  "exclude": ["node_modules"]
+}
