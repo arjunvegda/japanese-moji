@@ -10,7 +10,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:jest/recommended",
+    "plugin:jest/all",
     "airbnb-base",
     "airbnb-typescript/base",
     "prettier"
@@ -24,6 +24,7 @@ module.exports = {
     es2021: true,
     browser: true,
     node: true,
+    jest: true,
   },
   rules: {
     '@typescript-eslint/ban-ts-comment': 'off',
@@ -43,5 +44,10 @@ module.exports = {
         trailingUnderscore: 'allow',
       },
     ],
+    'jest/consistent-test-it': ["error", {"fn": "test", "withinDescribe": "test"}],
+    "jest/prefer-expect-assertions": [
+      "warn",
+      { "onlyFunctionsWithAsyncKeyword": true }
+    ]
   },
 };
