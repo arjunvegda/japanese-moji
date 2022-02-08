@@ -45,6 +45,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
         
+      - name: Build package  
+        run: yarn run build
+  
       - name: Release package  
         run: yarn run release
         env:
