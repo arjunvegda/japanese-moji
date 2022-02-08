@@ -1,3 +1,10 @@
+# [1.0.0-alpha.3](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2022-02-08)
+
+
+### Bug Fixes
+
+* **package.json:** export umd module ([e7e4c1b](https://github.com/arjunvegda/japanese-moji/commit/e7e4c1b3d7ece14aee51bcc4fc60187d9d0482e2))
+
 # [1.0.0-alpha.2](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2022-02-08)
 
 
