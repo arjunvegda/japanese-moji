@@ -35,16 +35,18 @@
   "source": "./src/index.ts",
   "types": "./dist/types/index.d.ts",
   "exports": {
-    "require": "./dist/japanese-moji.cjs",
-    "default": "./dist/japanese-moji.modern.js"
+    ".": {
+      "require": "./dist/japanese-moji.cjs",
+      "import": "./dist/japanese-moji.modern.js",
+      "umd": "./dist/japanese-moji.umd.js"
+    }
   },
   "main": "./dist/japanese-moji.cjs",
   "module": "./dist/japanese-moji.module.js",
   "unpkg": "./dist/japanese-moji.umd.js",
   "files": [
     "dist",
-    "package.json",
-    "docs/CHANGELOG.md"
+    "package.json"
   ],
   "scripts": {
     "test": "jest",
