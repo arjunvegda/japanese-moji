@@ -52,7 +52,7 @@
     "lint:fix": "eslint . --fix",
     "lint-staged": "lint-staged",
     "commit-lint": "commitlint",
-    "release": "semantic-release"
+    "release": "semantic-release --dry-run"
   },
   "engines": {
     "node": "^14.13.1 || >=16.0.0",
@@ -84,7 +84,7 @@
     "microbundle": "^0.14.2",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
-    "semantic-release": "^19.0.2",
+    "semantic-release": "^18.0.1",
     "ts-jest": "^27.1.3",
     "ts-node": "^10.4.0",
     "tslib": "^2.3.1",
