@@ -320,3 +320,5 @@ dist
 
 # Project specific
 build
+dist
+dist/**
