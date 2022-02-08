@@ -1,3 +1,10 @@
+# [1.0.0-alpha.4](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-02-08)
+
+
+### Bug Fixes
+
+* **create-match-score:** catch NaN values ([6dba026](https://github.com/arjunvegda/japanese-moji/commit/6dba026ce5e9f3f3a047a26712f1a6b7399dbbad))
+
 # [1.0.0-alpha.3](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2022-02-08)
 
 
