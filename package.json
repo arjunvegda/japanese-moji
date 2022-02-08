@@ -32,12 +32,22 @@
     "url": "https://github.com/arjunvegda/japanese-moji/issues"
   },
   "homepage": "https://github.com/arjunvegda/japanese-moji#readme",
+  "source": "./src/index.ts",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    "require": "./dist/japanese-moji.cjs",
+    "default": "./dist/japanese-moji.modern.js"
+  },
+  "main": "./dist/japanese-moji.cjs",
+  "module": "./dist/japanese-moji.module.js",
+  "unpkg": "./dist/japanese-moji.umd.js",
   "scripts": {
     "test": "jest",
     "test:watch": "yarn run test --watch",
     "test:coverage": "yarn run test --coverage",
     "test:ci": "yarn run test:coverage --maxWorkers=4",
-    "build": "tsc",
+    "prebuild": "rimraf ./dist",
+    "build": "yarn run prebuild & microbundle build --tsconfig ./tsconfig.build.json --compress --sourcemap false",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint-staged": "lint-staged",
@@ -68,7 +78,9 @@
     "jest": "^27.5.0",
     "jest-watch-typeahead": "^1.0.0",
     "lint-staged": "^12.3.3",
+    "microbundle": "^0.14.2",
     "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
     "ts-jest": "^27.1.3",
     "ts-node": "^10.4.0",
     "tslib": "^2.3.1",
