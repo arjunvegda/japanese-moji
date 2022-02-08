@@ -41,6 +41,11 @@
   "main": "./dist/japanese-moji.cjs",
   "module": "./dist/japanese-moji.module.js",
   "unpkg": "./dist/japanese-moji.umd.js",
+  "files": [
+    "dist",
+    "package.json",
+    "docs/CHANGELOG.md"
+  ],
   "scripts": {
     "test": "jest",
     "test:watch": "yarn run test --watch",
