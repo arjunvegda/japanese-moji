@@ -26,7 +26,8 @@ export const createMatchScoreCalculator = (
     const matches = matchString(str, finalRegexPattern, 'gui');
 
     const score = (matches.length / str.length) * 100;
-    return score;
+
+    return Number.isNaN(score) ? 0 : score;
   };
 
   return customCalculator;

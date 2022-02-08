@@ -79,6 +79,12 @@ describe('createThresholdBasedValidator', () => {
       const result = isKanaPresent(fullKanaString + invalidString, 70);
       expect(result).toBe(false);
     });
+
+    test('should work fine with empty strings', () => {
+      const isKanaPresent = createThresholdBasedValidator(mockOptions);
+      const result = isKanaPresent('');
+      expect(result).toBe(false);
+    });
   });
   describe('customRanges', () => {
     test('should add custom unicode range and return true for valid string', () => {

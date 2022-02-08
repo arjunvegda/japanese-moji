@@ -58,7 +58,14 @@ describe('createMatchScoreCalculator', () => {
       const result = isValidKana(fullKanaString);
       expect(toFixedNumber(result)).toBe(100);
     });
+
+    test('should work fine with empty strings', () => {
+      const isValidKana = createMatchScoreCalculator(mockOptions);
+      const result = isValidKana('');
+      expect(toFixedNumber(result)).toBe(0);
+    });
   });
+
   describe('customRanges', () => {
     test('should add custom unicode range and return 100% for fully valid string', () => {
       const mergedOptions: CreateValidatorOptions = {
