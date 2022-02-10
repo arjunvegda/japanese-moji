@@ -5,9 +5,10 @@ import { matchString } from './match-string';
 import { invariant } from './invariant';
 
 /**
- * Creates a function that calculates the score for a match with `pattern`
+ * Creates a function that calculates a match score for a given string.
  *
  * @param options - Check {@link CreateValidatorOptions} for all the available options
+ * @returns {@Link MatchScoreCalculator} - A function that calculates the score for a match
  */
 export const createMatchScoreCalculator = (
   options: CreateValidatorOptions,
