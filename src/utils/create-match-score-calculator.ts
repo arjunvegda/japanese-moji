@@ -2,7 +2,6 @@ import type { CreateValidatorOptions, MatchScoreCalculator } from '../types';
 import { makeString } from './make-string';
 import { optionsToRegex } from './options-to-regex';
 import { matchString } from './match-string';
-import { invariant } from './invariant';
 
 /**
  * Creates a function that calculates a match score for a given string.
@@ -13,12 +12,6 @@ import { invariant } from './invariant';
 export const createMatchScoreCalculator = (
   options: CreateValidatorOptions,
 ): MatchScoreCalculator => {
-  invariant(options, `createMatchScoreCalculator: requires "options" to be supplied`);
-  invariant(
-    options?.characterSets,
-    `createMatchScoreCalculator: requires "options.characterSets" to be supplied`,
-  );
-
   const regexGroup = optionsToRegex(options);
 
   const finalRegexPattern = makeString(regexGroup, '*');

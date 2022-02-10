@@ -44,13 +44,13 @@ describe('createThresholdBasedValidator', () => {
     test('should throw an error if options is not provided', () => {
       // @ts-ignore
       expect(() => createThresholdBasedValidator()).toThrow(
-        '[japanese-moji]: createThresholdBasedValidator: requires "options" to be supplied',
+        '[japanese-moji]: "options" arg is required',
       );
     });
     test('should throw an error if options.characterSets is not provided', () => {
       // @ts-ignore
       expect(() => createThresholdBasedValidator({})).toThrow(
-        '[japanese-moji]: createThresholdBasedValidator: requires "options.characterSets" to be supplied',
+        '[japanese-moji]: "options.characterSets" is required',
       );
     });
   });
@@ -63,9 +63,9 @@ describe('createThresholdBasedValidator', () => {
     test('should throw an error when invalid character sets are provided', () => {
       // Disabled ts intentionally to test the error message
       // @ts-ignore
-      expect(() => createThresholdBasedValidator({ characterSets: ['invalid'] })).toThrow(
-        '[japanese-moji]: createRegexGroups: key "invalid" not found in the "characterSetMap',
-      );
+      const isKanaPresent = createThresholdBasedValidator({ characterSets: ['invalid'] });
+      const result = isKanaPresent(fullKanaString);
+      expect(result).toBe(false);
     });
 
     test('should validate a string with the provided character sets with default threshold', () => {
@@ -107,7 +107,7 @@ describe('createThresholdBasedValidator', () => {
       expect(result).toBe(false);
     });
 
-    test('should throw an error when invalid custom unicode ranges are provided', () => {
+    test('should work fine when invalid custom unicode ranges are provided', () => {
       const mergedOptions: CreateValidatorOptions = {
         ...mockOptions,
         customRanges: [
@@ -118,11 +118,9 @@ describe('createThresholdBasedValidator', () => {
           },
         ],
       };
-      // Disabled ts intentionally to test the error message
-      // @ts-ignore
-      expect(() => createThresholdBasedValidator(mergedOptions)).toThrow(
-        '[japanese-moji]: createRange: invalid unicode value supplied for start of the range',
-      );
+      const isKanaPresent = createThresholdBasedValidator(mergedOptions);
+      const result = isKanaPresent(fullKanaString, 0);
+      expect(result).toBe(true);
     });
   });
   describe('customUnicodes', () => {
@@ -146,16 +144,15 @@ describe('createThresholdBasedValidator', () => {
       expect(result).toBe(false);
     });
 
-    test('should throw an error when invalid custom unicodes are provided', () => {
+    test('should work fine when invalid custom unicodes are provided', () => {
       const mergedOptions: CreateValidatorOptions = {
         ...mockOptions,
         customUnicodes: [''],
       };
-      // Disabled ts intentionally to test the error message
-      // @ts-ignore
-      expect(() => createThresholdBasedValidator(mergedOptions)).toThrow(
-        '[japanese-moji]: createUnicode: invalid unicode value supplied',
-      );
+
+      const isKanaPresent = createThresholdBasedValidator(mergedOptions);
+      const result = isKanaPresent(fullKanaString, 0);
+      expect(result).toBe(true);
     });
   });
 });
