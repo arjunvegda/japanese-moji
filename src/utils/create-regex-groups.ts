@@ -1,6 +1,5 @@
 import type { CharacterDict, CharacterSet } from '../types';
 import { makeString } from './make-string';
-import { invariant } from './invariant';
 
 export const createRegexGroups = (
   characterSetMap: CharacterDict,
@@ -9,7 +8,10 @@ export const createRegexGroups = (
 ) => {
   const mappedStrings = characterSets.map((key: CharacterSet) => {
     const foundSet = characterSetMap[key];
-    invariant(foundSet, `createRegexGroups: key "${key}" not found in the "characterSetMap"`);
+
+    if (!foundSet) {
+      return '';
+    }
 
     return makeString(foundSet);
   });

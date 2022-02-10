@@ -29,28 +29,29 @@ describe('createMatchScoreCalculator', () => {
     test('should throw an error if options is not provided', () => {
       // @ts-ignore
       expect(() => createMatchScoreCalculator()).toThrow(
-        '[japanese-moji]: createMatchScoreCalculator: requires "options" to be supplied',
+        '[japanese-moji]: "options" arg is required',
       );
     });
     test('should throw an error if options.characterSets is not provided', () => {
       // @ts-ignore
       expect(() => createMatchScoreCalculator({})).toThrow(
-        '[japanese-moji]: createMatchScoreCalculator: requires "options.characterSets" to be supplied',
+        '[japanese-moji]: "options.characterSets" is required',
       );
     });
   });
+
   describe('characterSets', () => {
     test('should return a function', () => {
       const result = createMatchScoreCalculator(mockOptions);
       expect(typeof result).toBe('function');
     });
 
-    test('should throw an error when invalid character sets are provided', () => {
+    test('should work fine when invalid character sets are provided', () => {
       // Disabled ts intentionally to test the error message
       // @ts-ignore
-      expect(() => createMatchScoreCalculator({ characterSets: ['invalid'] })).toThrow(
-        '[japanese-moji]: createRegexGroups: key "invalid" not found in the "characterSetMap',
-      );
+      const calculateScore = createMatchScoreCalculator({ characterSets: ['invalid'] });
+      const result = calculateScore(fullKanaString);
+      expect(toFixedNumber(result)).toBe(0);
     });
 
     test('should validate a string with 100% for the provided character sets', () => {
@@ -87,22 +88,19 @@ describe('createMatchScoreCalculator', () => {
       expect(toFixedNumber(result)).toBe(49);
     });
 
-    test('should throw an error when invalid custom unicode ranges are provided', () => {
+    test('should work fine when invalid custom unicode ranges are provided', () => {
       const mergedOptions: CreateValidatorOptions = {
         ...mockOptions,
         customRanges: [
           {
             start: 'invalid stuff',
-            // This will not get printed since "start" throws
             end: 'invalid stuff',
           },
         ],
       };
-      // Disabled ts intentionally to test the error message
-      // @ts-ignore
-      expect(() => createMatchScoreCalculator(mergedOptions)).toThrow(
-        '[japanese-moji]: createRange: invalid unicode value supplied for start of the range',
-      );
+      const calculateScore = createMatchScoreCalculator(mergedOptions);
+      const result = calculateScore(fullKanaString + invalidString);
+      expect(toFixedNumber(result)).toBe(49);
     });
   });
   describe('customUnicodes', () => {
@@ -126,16 +124,15 @@ describe('createMatchScoreCalculator', () => {
       expect(toFixedNumber(result)).toBe(33);
     });
 
-    test('should throw an error when invalid custom unicodes are provided', () => {
+    test('should work fine when invalid custom unicodes are provided', () => {
       const mergedOptions: CreateValidatorOptions = {
         ...mockOptions,
         customUnicodes: [''],
       };
-      // Disabled ts intentionally to test the error message
-      // @ts-ignore
-      expect(() => createMatchScoreCalculator(mergedOptions)).toThrow(
-        '[japanese-moji]: createUnicode: invalid unicode value supplied',
-      );
+
+      const calculateScore = createMatchScoreCalculator(mergedOptions);
+      const result = calculateScore(fullKanaString + invalidString);
+      expect(toFixedNumber(result)).toBe(49);
     });
   });
 });
