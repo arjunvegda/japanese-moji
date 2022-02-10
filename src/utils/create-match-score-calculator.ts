@@ -1,4 +1,4 @@
-import type { CreateValidatorOptions, ThresholdCalculator } from '../types';
+import type { CreateValidatorOptions, MatchScoreCalculator } from '../types';
 import { makeString } from './make-string';
 import { optionsToRegex } from './options-to-regex';
 import { matchString } from './match-string';
@@ -11,7 +11,7 @@ import { invariant } from './invariant';
  */
 export const createMatchScoreCalculator = (
   options: CreateValidatorOptions,
-): ThresholdCalculator => {
+): MatchScoreCalculator => {
   invariant(options, `createMatchScoreCalculator: requires "options" to be supplied`);
   invariant(
     options?.characterSets,
@@ -22,7 +22,7 @@ export const createMatchScoreCalculator = (
 
   const finalRegexPattern = makeString(regexGroup, '*');
 
-  const customCalculator: ThresholdCalculator = (str: string): number => {
+  const customCalculator: MatchScoreCalculator = (str: string): number => {
     const matches = matchString(str, finalRegexPattern, 'gui');
 
     const score = (matches.length / str.length) * 100;

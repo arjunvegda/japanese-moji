@@ -28,4 +28,4 @@ export type ThresholdBasedValidator = (
   // between 0 and 100
   threshold?: number,
 ) => boolean;
-export type ThresholdCalculator = (arg: string) => number;
+export type MatchScoreCalculator = (arg: string) => number;
