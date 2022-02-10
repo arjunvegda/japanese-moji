@@ -1,3 +1,10 @@
+# [1.0.0-alpha.5](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2022-02-10)
+
+
+### Performance Improvements
+
+* reduce bundle size ([ad4a52b](https://github.com/arjunvegda/japanese-moji/commit/ad4a52bdc0ddfb6ecf4c61f6914e0cca643be580))
+
 # [1.0.0-alpha.4](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-02-08)
 
 
