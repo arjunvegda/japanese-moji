@@ -51,7 +51,7 @@ const howMuchKanjiIsPresentResult = howMuchKanjiIsPresent('我喜欢拉面'); //
 
 ### Kana
 
-Validates Hiragana, Katakana, and Katakana phonetic extensions
+Validates Katakana, Half-width Katakana, and Katakana phonetic extensions
 
 ```ts
 import { isValidKana, isKanaPresent, howMuchKanaIsPresent } from 'japanese-moji';
@@ -69,7 +69,7 @@ const howMuchKanaIsPresentResult = howMuchKanaIsPresent('アイ・ライク・�
 ### Japanese
 
 Validates CJK punctuations, Hiragana, Katakana, Katakana phonetic extensions, Rare Kanji, Common and
-Uncommon Kanji, Kanji compatibility ideographs, Half-width, and Full-width Roman and Katakana forms
+Uncommon Kanji, Kanji compatibility ideographs, and Half-width Katakana forms
 
 ```ts
 import { isValidJapanese, isJapanesePresent, howMuchJapaneseIsPresent } from 'japanese-moji';
@@ -95,7 +95,7 @@ enum CharacterSet {
   RareKanji = 'RareKanji',
   KanjiCompatibilityIdeographs = 'KanjiCompatibilityIdeographs',
   CommonUncommonKanji = 'CommonUncommonKanji',
-  RomanHalfwidthKatakana = 'RomanHalfwidthKatakana',
+  HalfWidthKatakana = 'HalfWidthKatakana',
 }
 
 interface UnicodeRange {
@@ -155,7 +155,7 @@ const options: CreateValidatorOptions = {
     CharacterSet.RareKanji,
     CharacterSet.CommonUncommonKanji,
     CharacterSet.KanjiCompatibilityIdeographs,
-    CharacterSet.RomanHalfwidthKatakana,
+    CharacterSet.HalfWidthKatakana,
   ],
   customRanges, // Optional
   customUnicodes, // Optional
