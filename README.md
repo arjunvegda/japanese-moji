@@ -23,13 +23,13 @@ The word "_Moji_" translates to "Character" in English
 
 ### Yarn
 
-```sh
+```
 yarn add japanese-moji
 ```
 
 ### NPM
 
-```sh
+```
 npm install --save japanese-moji
 ```
 
@@ -171,4 +171,4 @@ const howMuchIsCustomPresent: MatchScoreCalculator = createMatchScoreCalculator(
 
 ### 📄 Changelog
 
-Full change log in the [CHANGELOG.md](./docs/CHANGELOG.md) file
+Full change log available in the [docs/CHANGELOG.md](./docs/CHANGELOG.md)
