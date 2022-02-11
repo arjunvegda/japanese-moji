@@ -1,7 +1,10 @@
-![Japanese Moji](./docs/logo-dark.svg#gh-dark-mode-only)
-![Japanese Moji](./docs/logo-light.svg#gh-light-mode-only)
-
-<hr/>
+<h1 align="center">
+  <picture>
+    <source srcset="./docs/logo-dark.svg" media="(prefers-color-scheme: dark)">
+    <img alt="Japanese Moji Logo" src="./docs/logo-light.svg#gh-light-mode-only">
+    <span style="display: none"><img alt="Japanese Moji Logo" src="./docs/logo-dark.svg#gh-dark-mode-only"></span>
+  </picture>
+</h1>
 
 The word "_Moji_" translates to "Character" in English
 
