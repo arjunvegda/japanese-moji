@@ -1,7 +1,7 @@
 import {
   CJKPunctuationsRange,
   CommonUncommonKanjiRange,
-  RomanHalfwidthKatakanaRange,
+  HalfWidthKatakanaRange,
   HiraganaRange,
   KatakanaPhoneticExtensionRange,
   KatakanaRange,
@@ -27,7 +27,8 @@ export const KanjiCompatibilityIdeographs = createRange(
   KanjiCompatibilityIdeographsRange.start,
   KanjiCompatibilityIdeographsRange.end,
 );
-export const RomanHalfwidthKatakana = createRange(
-  RomanHalfwidthKatakanaRange.start,
-  RomanHalfwidthKatakanaRange.end,
+
+export const HalfWidthKatakana = createRange(
+  HalfWidthKatakanaRange.start,
+  HalfWidthKatakanaRange.end,
 );

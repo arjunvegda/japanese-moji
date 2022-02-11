@@ -8,7 +8,7 @@ import {
   MockKatakanaPhoneticExtensionRange,
   MockKatakanaRange,
   MockRareKanjiRange,
-  MockRomanHalfwidthKatakanaRange,
+  MockHalfWidthKatakana,
 } from '../constants';
 
 describe('validator - Japanese', () => {
@@ -20,7 +20,7 @@ describe('validator - Japanese', () => {
     MockKatakanaPhoneticExtensionRange,
     MockHiraganaRange,
     MockCJKPunctuationsRange,
-    MockRomanHalfwidthKatakanaRange,
+    MockHalfWidthKatakana,
   ]);
 
   const invalidString = getRandomString(500);

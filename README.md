@@ -1,7 +1,10 @@
-![Japanese Moji](./docs/logo-dark.svg#gh-dark-mode-only)
-![Japanese Moji](./docs/logo-light.svg#gh-light-mode-only)
-
-<hr/>
+<h1 align="center">
+  <picture>
+    <source srcset="./docs/logo-dark.svg" media="(prefers-color-scheme: dark)">
+    <img alt="Japanese Moji Logo" src="./docs/logo-light.svg#gh-light-mode-only">
+    <span style="display: none"><img alt="Japanese Moji Logo" src="./docs/logo-dark.svg#gh-dark-mode-only"></span>
+  </picture>
+</h1>
 
 The word "_Moji_" translates to "Character" in English
 
@@ -20,13 +23,13 @@ The word "_Moji_" translates to "Character" in English
 
 ### Yarn
 
-```sh
+```
 yarn add japanese-moji
 ```
 
 ### NPM
 
-```sh
+```
 npm install --save japanese-moji
 ```
 
@@ -51,7 +54,7 @@ const howMuchKanjiIsPresentResult = howMuchKanjiIsPresent('我喜欢拉面'); //
 
 ### Kana
 
-Validates Hiragana, Katakana, and Katakana phonetic extensions
+Validates Katakana, Half-width Katakana, and Katakana phonetic extensions
 
 ```ts
 import { isValidKana, isKanaPresent, howMuchKanaIsPresent } from 'japanese-moji';
@@ -69,7 +72,7 @@ const howMuchKanaIsPresentResult = howMuchKanaIsPresent('アイ・ライク・�
 ### Japanese
 
 Validates CJK punctuations, Hiragana, Katakana, Katakana phonetic extensions, Rare Kanji, Common and
-Uncommon Kanji, Kanji compatibility ideographs, Half-width, and Full-width Roman and Katakana forms
+Uncommon Kanji, Kanji compatibility ideographs, and Half-width Katakana forms
 
 ```ts
 import { isValidJapanese, isJapanesePresent, howMuchJapaneseIsPresent } from 'japanese-moji';
@@ -95,7 +98,7 @@ enum CharacterSet {
   RareKanji = 'RareKanji',
   KanjiCompatibilityIdeographs = 'KanjiCompatibilityIdeographs',
   CommonUncommonKanji = 'CommonUncommonKanji',
-  RomanHalfwidthKatakana = 'RomanHalfwidthKatakana',
+  HalfWidthKatakana = 'HalfWidthKatakana',
 }
 
 interface UnicodeRange {
@@ -155,7 +158,7 @@ const options: CreateValidatorOptions = {
     CharacterSet.RareKanji,
     CharacterSet.CommonUncommonKanji,
     CharacterSet.KanjiCompatibilityIdeographs,
-    CharacterSet.RomanHalfwidthKatakana,
+    CharacterSet.HalfWidthKatakana,
   ],
   customRanges, // Optional
   customUnicodes, // Optional
@@ -168,4 +171,4 @@ const howMuchIsCustomPresent: MatchScoreCalculator = createMatchScoreCalculator(
 
 ### 📄 Changelog
 
-Full change log in the [CHANGELOG.md](./docs/CHANGELOG.md) file
+Full change log available in the [docs/CHANGELOG.md](./docs/CHANGELOG.md)
