@@ -2,7 +2,7 @@ import { CharacterDict, CharacterSet } from '../types';
 import {
   CJKPunctuations,
   CommonUncommonKanji,
-  RomanHalfwidthKatakana,
+  HalfWidthKatakana,
   Hiragana,
   Katakana,
   KatakanaPhoneticExtension,
@@ -18,7 +18,7 @@ export const characterSetMap: Readonly<CharacterDict> = Object.freeze({
   [CharacterSet.RareKanji]: RareKanji,
   [CharacterSet.KanjiCompatibilityIdeographs]: KanjiCompatibilityIdeographs,
   [CharacterSet.CommonUncommonKanji]: CommonUncommonKanji,
-  [CharacterSet.RomanHalfwidthKatakana]: RomanHalfwidthKatakana,
+  [CharacterSet.HalfWidthKatakana]: HalfWidthKatakana,
 });
 
 export const defaultValidationThreshold = 85;

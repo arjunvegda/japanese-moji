@@ -9,7 +9,7 @@ const options: CreateValidatorOptions = {
   characterSets: [
     CharacterSet.KatakanaPhoneticExtension,
     CharacterSet.Katakana,
-    CharacterSet.Hiragana,
+    CharacterSet.HalfWidthKatakana,
   ],
 };
 

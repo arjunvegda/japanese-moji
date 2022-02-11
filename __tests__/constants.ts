@@ -35,7 +35,7 @@ export const MockCommonUncommonKanjiRange: UnicodeRange = {
   end: '\u9fdf',
 };
 
-export const MockRomanHalfwidthKatakanaRange: UnicodeRange = {
-  start: '\uff00',
-  end: '\uffef',
+export const MockHalfWidthKatakana: UnicodeRange = {
+  start: '\uff66',
+  end: '\uff9f',
 };

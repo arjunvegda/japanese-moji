@@ -6,7 +6,7 @@ export enum CharacterSet {
   RareKanji = 'RareKanji',
   KanjiCompatibilityIdeographs = 'KanjiCompatibilityIdeographs',
   CommonUncommonKanji = 'CommonUncommonKanji',
-  RomanHalfwidthKatakana = 'RomanHalfwidthKatakana',
+  HalfWidthKatakana = 'HalfWidthKatakana',
 }
 
 export type CharacterDict = Record<CharacterSet, string>;

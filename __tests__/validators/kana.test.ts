@@ -1,7 +1,7 @@
 import { generateCharactersFromRanges, toFixedNumber } from '../utils';
 import { howMuchKanaIsPresent, isKanaPresent, isValidKana } from '../../src';
 import {
-  MockHiraganaRange,
+  MockHalfWidthKatakana,
   MockKatakanaPhoneticExtensionRange,
   MockKatakanaRange,
 } from '../constants';
@@ -10,7 +10,7 @@ describe('validator - kana', () => {
   const fullKanaString = generateCharactersFromRanges([
     MockKatakanaRange,
     MockKatakanaPhoneticExtensionRange,
-    MockHiraganaRange,
+    MockHalfWidthKatakana,
   ]);
 
   const invalidString = 'abcdefghijklmnopqrstuvwxyz';
@@ -52,7 +52,7 @@ describe('validator - kana', () => {
 
     test('should return 89 when only kana characters are supplied', () => {
       const result = +howMuchKanaIsPresent(fullKanaString + invalidString);
-      expect(toFixedNumber(result)).toBe(89);
+      expect(toFixedNumber(result)).toBe(87);
     });
 
     test('should return 0 when no kana characters are supplied', () => {
