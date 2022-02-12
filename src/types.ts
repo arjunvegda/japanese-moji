@@ -6,11 +6,16 @@ export enum CharacterSet {
   RareKanji = 'RareKanji',
   KanjiCompatibilityIdeographs = 'KanjiCompatibilityIdeographs',
   CommonUncommonKanji = 'CommonUncommonKanji',
-  RomanHalfwidthKatakana = 'RomanHalfwidthKatakana',
+  HalfWidthKatakana = 'HalfWidthKatakana',
 }
 
 export type CharacterDict = Record<CharacterSet, string>;
 
+/**
+ * All the values must be escaped to be used in a regex
+ *
+ * Example of a valid value - `\\u3042`
+ */
 export interface UnicodeRange {
   start: string;
   end: string;
@@ -28,4 +33,4 @@ export type ThresholdBasedValidator = (
   // between 0 and 100
   threshold?: number,
 ) => boolean;
-export type ThresholdCalculator = (arg: string) => number;
+export type MatchScoreCalculator = (arg: string) => number;

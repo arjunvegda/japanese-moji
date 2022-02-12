@@ -38,8 +38,7 @@ export const CommonUncommonKanjiRange: UnicodeRange = {
   end: '\\u9fdf',
 };
 
-// Half width and Fullwidth Forms
-export const RomanHalfwidthKatakanaRange: UnicodeRange = {
-  start: '\\uff00',
-  end: '\\uffef',
+export const HalfWidthKatakanaRange: UnicodeRange = {
+  start: '\\uff66',
+  end: '\\uff9f',
 };

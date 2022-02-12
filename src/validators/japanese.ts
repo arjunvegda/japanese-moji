@@ -14,7 +14,7 @@ const options: CreateValidatorOptions = {
     CharacterSet.RareKanji,
     CharacterSet.CommonUncommonKanji,
     CharacterSet.KanjiCompatibilityIdeographs,
-    CharacterSet.RomanHalfwidthKatakana,
+    CharacterSet.HalfWidthKatakana,
   ],
 };
 
