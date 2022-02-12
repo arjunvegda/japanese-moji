@@ -1,3 +1,10 @@
+# [1.0.0-alpha.7](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2022-02-12)
+
+
+### Bug Fixes
+
+* trigger build, empty commit ([680b334](https://github.com/arjunvegda/japanese-moji/commit/680b334b2fe70649c0dc27c23c9195b2b610129e))
+
 # [1.0.0-alpha.6](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-02-12)
 
 
