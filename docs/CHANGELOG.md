@@ -1,3 +1,10 @@
+# [1.0.0-alpha.6](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-02-12)
+
+
+### Features
+
+* **kana:** remove roman and jamo character sets ([#17](https://github.com/arjunvegda/japanese-moji/issues/17)) ([f067e31](https://github.com/arjunvegda/japanese-moji/commit/f067e31b8253a37d60c1428f14158f6155970b68))
+
 # [1.0.0-alpha.5](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2022-02-10)
 
 
