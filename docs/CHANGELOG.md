@@ -1,3 +1,15 @@
+# 1.0.0 (2022-02-12)
+
+
+### Bug Fixes
+
+* trigger build, empty commit ([#24](https://github.com/arjunvegda/japanese-moji/issues/24)) ([f52bc70](https://github.com/arjunvegda/japanese-moji/commit/f52bc709a9ba784a1d8dba0b8a801f841c68721d))
+
+
+### Features
+
+* add kanji, kana and japanese validators ([29027ce](https://github.com/arjunvegda/japanese-moji/commit/29027ceb0c55b7ab0bd74f90a86481ee7677d90a))
+
 # 1.0.0-next.1 (2022-02-12)
 
 
