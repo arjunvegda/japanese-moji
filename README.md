@@ -5,7 +5,11 @@
     <img src="https://badgen.net/github/release/arjunvegda/japanese-moji"/> 
     <img src="https://badgen.net/bundlephobia/minzip/japanese-moji?color=green"/> 
     <img src="https://badgen.net/bundlephobia/dependency-count/japanese-moji?color=green"/> 
+    <a href="https://codecov.io/gh/arjunvegda/japanese-moji">
+        <img src="https://codecov.io/gh/arjunvegda/japanese-moji/branch/main/graph/badge.svg?token=GZ8GBUVYD8"/>
+    </a>
     <img src="https://badgen.net/npm/license/japanese-moji?color=purple"/> 
+    
 <hr/>
 <br/>
 The word "_Moji_" translates to "Character" in English
