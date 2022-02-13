@@ -1,7 +1,13 @@
-<h1 align="center">
+<p align="center">
     <img alt="Japanese Moji Logo" src="./docs/logo-light.svg">
-</h1>
-
+</p>
+<p align="center">
+    <img src="https://badgen.net/github/release/arjunvegda/japanese-moji"/> 
+    <img src="https://badgen.net/bundlephobia/minzip/japanese-moji?color=green"/> 
+    <img src="https://badgen.net/bundlephobia/dependency-count/japanese-moji?color=green"/> 
+    <img src="https://badgen.net/npm/license/japanese-moji?color=purple"/> 
+<hr/>
+<br/>
 The word "_Moji_" translates to "Character" in English
 
 ### 🚀 Features
@@ -39,13 +45,13 @@ Validates Rare Kanji, Common and Uncommon Kanji, and Kanji compatibility ideogra
 import { isValidKanji, isKanjiPresent, howMuchKanjiIsPresent } from 'japanese-moji';
 
 // Strict validation
-const isValidKanjiResult = isValidKanji('我喜欢拉面'); // true
+const isValidKanjiResult = isValidKanji('some string here');
 
 // Default threshold is 85 (2nd argument)
-const isKanjiPresentResult = isKanjiPresent('我喜欢拉面', 90); // true
+const isKanjiPresentResult = isKanjiPresent('some string here', 90);
 
 // Returns % of Kanji present in a string
-const howMuchKanjiIsPresentResult = howMuchKanjiIsPresent('我喜欢拉面'); // 100
+const howMuchKanjiIsPresentResult = howMuchKanjiIsPresent('some string here');
 ```
 
 ### Kana
@@ -56,13 +62,13 @@ Validates Katakana, Half-width Katakana, and Katakana phonetic extensions
 import { isValidKana, isKanaPresent, howMuchKanaIsPresent } from 'japanese-moji';
 
 // Strict validation
-const isValidKanaResult = isValidKana('アイ・ライク・ラーメン'); // true
+const isValidKanaResult = isValidKana('some string here');
 
 // Default threshold is 85 (2nd argument)
-const isKanaPresentResult = isKanaPresent('アイ・ライク・ラーメン', 90); // true
+const isKanaPresentResult = isKanaPresent('some string here', 90);
 
 // Returns % of Kana present in a string
-const howMuchKanaIsPresentResult = howMuchKanaIsPresent('アイ・ライク・ラーメン'); // 100
+const howMuchKanaIsPresentResult = howMuchKanaIsPresent('some string here');
 ```
 
 ### Japanese
@@ -74,13 +80,13 @@ Uncommon Kanji, Kanji compatibility ideographs, and Half-width Katakana forms
 import { isValidJapanese, isJapanesePresent, howMuchJapaneseIsPresent } from 'japanese-moji';
 
 // Strict validation
-const isValidJapaneseResult = isValidJapanese('私はラーメンが好きです'); // true
+const isValidJapaneseResult = isValidJapanese('some string here');
 
 // Default threshold is 85 (2nd argument)
-const isJapanesePresentResult = isJapanesePresent('私はラーメンが好きです', 90); // true
+const isJapanesePresentResult = isJapanesePresent('some string here', 90);
 
 // Returns % of Japanese present in a string
-const howMuchJapaneseIsPresentResult = howMuchJapaneseIsPresent('私はラーメンが好きです'); // 100
+const howMuchJapaneseIsPresentResult = howMuchJapaneseIsPresent('some string here');
 ```
 
 ### 📝 Types summary
@@ -163,6 +169,15 @@ const options: CreateValidatorOptions = {
 const isValidCustom: StrictValidator = createStrictValidator(options);
 const isCustomPresent: ThresholdBasedValidator = createThresholdBasedValidator(options);
 const howMuchIsCustomPresent: MatchScoreCalculator = createMatchScoreCalculator(options);
+
+// Strict validation
+const isValidCustomResult = isValidCustom('some string here');
+
+// Default threshold is 85 (2nd argument)
+const isCustomPresentResult = isCustomPresent('some string here', 90);
+
+// Returns % of Japanese present in a string
+const howMuchIsCustomPresentResult = howMuchIsCustomPresent('some string here');
 ```
 
 ### 📄 Changelog
