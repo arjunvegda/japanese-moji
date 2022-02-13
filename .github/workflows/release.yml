@@ -8,7 +8,7 @@ on:
     branches:
       - main
       - next
-  pull_request:
+  pull_request: {}
 
 jobs:
   lint-test:
@@ -44,8 +44,7 @@ jobs:
         run: yarn run test:ci
 
   release:
-    if:
-      "!contains(github.event.head_commit.message, 'skip ci') && (github.ref == 'refs/heads/main')"
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
     needs: lint-test
     runs-on: ubuntu-latest
     steps:
