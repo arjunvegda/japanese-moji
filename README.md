@@ -10,8 +10,8 @@
     </a>
     <img src="https://badgen.net/npm/license/japanese-moji?color=purple"/> 
 <hr/>
-<br/>
-The word "_Moji_" translates to "Character" in English
+
+The word "Moji" translates to "Character" in English
 
 ### 🚀 Features
 
