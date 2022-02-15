@@ -1,19 +1,27 @@
 <p align="center">
     <img alt="Japanese Moji Logo" src="./docs/logo-light.svg">
 </p>
-<p align="center">
-    <img src="https://badgen.net/github/release/arjunvegda/japanese-moji"/> 
-    <img src="https://badgen.net/bundlephobia/minzip/japanese-moji?color=green"/> 
-    <img src="https://badgen.net/bundlephobia/dependency-count/japanese-moji?color=green"/> 
-    <a href="https://codecov.io/gh/arjunvegda/japanese-moji">
-        <img src="https://codecov.io/gh/arjunvegda/japanese-moji/branch/main/graph/badge.svg?token=GZ8GBUVYD8"/>
+<p align="center">'
+    <a href="https://www.npmjs.com/package/japanese-moji">
+      <img src="https://badgen.net/github/release/arjunvegda/japanese-moji"/>
     </a>
-    <img src="https://badgen.net/npm/license/japanese-moji?color=purple"/> 
+    <a href="https://bundlephobia.com/package/japanese-moji">
+      <img src="https://badgen.net/bundlephobia/minzip/japanese-moji?color=green"/>
+    </a>
+    <a href="https://bundlephobia.com/package/japanese-moji">
+      <img src="https://badgen.net/bundlephobia/dependency-count/japanese-moji?color=green"/>
+    </a>
+    <a href="https://codecov.io/gh/arjunvegda/japanese-moji">
+      <img src="https://codecov.io/gh/arjunvegda/japanese-moji/branch/main/graph/badge.svg?token=GZ8GBUVYD8"/>
+    </a>
+    <a href="./LICENSE">
+      <img src="https://badgen.net/npm/license/japanese-moji?color=blue"/>
+    </a>
 <hr/>
 
 The word "Moji" translates to "Character" in English
 
-### 🚀 Features
+## 🚀 Features
 
 - Very small footprint with zero dependencies
 - Supports strict and threshold-based validation for Kanji, Kana, and all the Japanese characters
