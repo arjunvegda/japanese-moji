@@ -1,7 +1,12 @@
 name: Lint & Test
 on:
-  - push
-  - pull_request
+  push:
+    paths-ignore:
+      - 'website/**'
+  pull_request:
+    paths-ignore:
+      - 'website/**'
+
 jobs:
   test:
     runs-on: ubuntu-latest

@@ -8,6 +8,8 @@ on:
     branches:
       - main
       - next
+    paths-ignore:
+      - 'website/**'
 
 jobs:
   lint-test:
