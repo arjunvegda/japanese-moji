@@ -1,7 +1,7 @@
 <p align="center">
     <img alt="Japanese Moji Logo" src="./docs/logo-light.svg">
 </p>
-<p align="center">'
+<p align="center">
     <a href="https://www.npmjs.com/package/japanese-moji">
       <img src="https://badgen.net/github/release/arjunvegda/japanese-moji"/>
     </a>

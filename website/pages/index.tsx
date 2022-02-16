@@ -1,9 +1,10 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 import { globalMaxWidthBox } from '../styles/common';
 import { LandingPageContent } from '../components/LandingPageContent';
+import { fetchPackageInfo } from '../apis';
 
 interface HomeProps {
   releaseVersion: string;
@@ -27,33 +28,18 @@ const Home: NextPage<HomeProps> = ({ releaseVersion, gzipBundleSize, codeCoverag
   );
 };
 
-export const getServerSideProps = async () => {
-  const result = await fetch('https://cdn.jsdelivr.net/npm/japanese-moji/package.json')
-    .then((res) => res.json())
-    .catch(() => {
-      return { version: null };
-    });
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { res } = context;
+  res.setHeader(
+    'Cache-Control',
+    `public, Cache-Control: max-age=432000, stale-while-revalidate=18000, stale-if-error=36000`,
+  );
 
-  const endpoint = `https://bundlephobia.com/api/size?package=japanese-moji`;
-  const bundlePhobiaRes = await fetch(endpoint)
-    .then((res) => res.json())
-    .catch(() => {
-      return { gzip: null };
-    });
+  const response = await fetchPackageInfo();
 
-  const codeCovResp = await fetch('https://codecov.io/api/gh/arjunvegda/japanese-moji/branch/main/')
-    .then((res) => res.json())
-    .catch((err) => {
-      console.log(err);
-      return {};
-    });
-
-  const cov = codeCovResp?.commit?.totals ? codeCovResp.commit.totals?.c : 0;
   return {
     props: {
-      releaseVersion: result.version,
-      gzipBundleSize: bundlePhobiaRes.gzip,
-      codeCoverage: cov,
+      ...response,
     },
   };
 };
