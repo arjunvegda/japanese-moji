@@ -1,4 +1,4 @@
-import { generateCharactersFromRanges, toFixedNumber } from '../utils';
+import { generateCharactersFromRanges, getRandomString, toFixedNumber } from '../utils';
 import { howMuchKanaIsPresent, isKanaPresent, isValidKana } from '../../src';
 import {
   MockHalfWidthKatakana,
@@ -13,7 +13,7 @@ describe('validator - kana', () => {
     MockHalfWidthKatakana,
   ]);
 
-  const invalidString = 'abcdefghijklmnopqrstuvwxyz';
+  const invalidString = getRandomString(27);
 
   describe('isValidKana', () => {
     test('should return true when only kana characters are supplied', () => {
@@ -51,12 +51,13 @@ describe('validator - kana', () => {
     });
 
     test('should return 89 when only kana characters are supplied', () => {
-      const result = +howMuchKanaIsPresent(fullKanaString + invalidString);
-      expect(toFixedNumber(result)).toBe(87);
+      const result = howMuchKanaIsPresent(fullKanaString + invalidString);
+      // Precision is important here due to the length of the string
+      expect(toFixedNumber(result, 3)).toBe(86.294);
     });
 
     test('should return 0 when no kana characters are supplied', () => {
-      const result = +howMuchKanaIsPresent(invalidString);
+      const result = howMuchKanaIsPresent(invalidString);
       expect(toFixedNumber(result)).toBe(0);
     });
   });
