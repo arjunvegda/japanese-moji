@@ -62,7 +62,8 @@ describe('validator - Kanji', () => {
 
     test('should return 96 when only Kanji characters are supplied', () => {
       const result = howMuchKanjiIsPresent(invalidString + rareKanjiRange);
-      expect(toFixedNumber(result)).toBe(96);
+      // Precision is important here due to the length of the string
+      expect(toFixedNumber(result, 3)).toBe(95.647);
     });
 
     test('should return 0 when no Kanji characters are supplied', () => {

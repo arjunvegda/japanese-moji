@@ -1,5 +1,7 @@
 <p align="center">
-    <img alt="Japanese Moji Logo" src="./docs/logo-light.svg">
+    <a href="https://japanese-moji.vercel.app">
+        <img alt="Japanese Moji Logo" src="./docs/logo-light.svg">
+  </a>
 </p>
 <p align="center">
     <a href="https://www.npmjs.com/package/japanese-moji">
@@ -21,7 +23,7 @@
 
 The word "Moji" translates to "Character" in English
 
-## 🚀 Features
+## ✨ Features
 
 - Very small footprint with zero dependencies
 - Supports strict and threshold-based validation for Kanji, Kana, and all the Japanese characters
@@ -31,6 +33,11 @@ The word "Moji" translates to "Character" in English
 - Supports custom single Unicode and Unicode ranges out-of-the-box
 - 100% TypeScript friendly
 - ESM, CJS, and UMD builds
+- Only pay for what you use this library is fully tree-shakable
+
+## 🚀 Demo
+
+Live demos are on this [website](https://japanese-moji.vercel.app)
 
 ## 📦 Install
 
@@ -85,7 +92,8 @@ const howMuchKanaIsPresentResult = howMuchKanaIsPresent('some string here');
 ### Japanese
 
 Validates CJK punctuations, Hiragana, Katakana, Katakana phonetic extensions, Rare Kanji, Common and
-Uncommon Kanji, Kanji compatibility ideographs, and Half-width Katakana forms
+Uncommon Kanji, Kanji compatibility ideographs, Half-width Katakana forms, and Full-width (roman)
+forms including punctuations
 
 ```ts
 import { isValidJapanese, isJapanesePresent, howMuchJapaneseIsPresent } from 'japanese-moji';
@@ -112,6 +120,10 @@ enum CharacterSet {
   KanjiCompatibilityIdeographs = 'KanjiCompatibilityIdeographs',
   CommonUncommonKanji = 'CommonUncommonKanji',
   HalfWidthKatakana = 'HalfWidthKatakana',
+  FullWidthUpperCase = 'FullWidthUpperCase',
+  FullWidthLowerCase = 'FullWidthLowerCase',
+  FullWidthNumbers = 'FullWidthNumbers',
+  FullWidthPunctuations = 'FullWidthPunctuations',
 }
 
 interface UnicodeRange {
@@ -172,6 +184,10 @@ const options: CreateValidatorOptions = {
     CharacterSet.CommonUncommonKanji,
     CharacterSet.KanjiCompatibilityIdeographs,
     CharacterSet.HalfWidthKatakana,
+    CharacterSet.FullWidthUpperCase,
+    CharacterSet.FullWidthLowerCase,
+    CharacterSet.FullWidthNumbers,
+    CharacterSet.FullWidthPunctuations,
   ],
   customRanges, // Optional
   customUnicodes, // Optional
