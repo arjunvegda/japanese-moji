@@ -140,4 +140,4 @@ Thank you for contributing 🙌!
 We automatically release new versions of `next` branch to next channel on each merge. We also
 release new versions of `main` branch on the stable channel on each merge.
 
-![Release diagram](./docs/release-flow.gif)
+<img src="./docs/release-flow.gif" width="400" alt="Release diagram"/>
