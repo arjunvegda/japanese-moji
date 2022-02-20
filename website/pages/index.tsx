@@ -5,6 +5,7 @@ import { Box } from '@chakra-ui/react';
 import { globalMaxWidthBox } from '../styles/common';
 import { LandingPageContent } from '../components/LandingPageContent';
 import { fetchPackageInfo } from '../apis';
+import { MetaTags } from '../components/MetaTags';
 
 interface HomeProps {
   releaseVersion: string;
@@ -15,9 +16,8 @@ const Home: NextPage<HomeProps> = ({ releaseVersion, gzipBundleSize, codeCoverag
   return (
     <Box {...globalMaxWidthBox} p={5} height="100%">
       <Head>
-        <title>Home | Japanese Moji</title>
-        <meta name="description" content="A toolkit to validate Japanese characters" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Japanese Moji</title>
+        <MetaTags title="Japanese Moji" />
       </Head>
       <LandingPageContent
         codeCoverage={codeCoverage}
