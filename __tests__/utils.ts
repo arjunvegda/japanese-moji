@@ -1,16 +1,35 @@
 import type { UnicodeRange } from '../src';
 import { makeString } from '../src/utils';
 
-export const generateCharactersFromRange = (start: string, end: string): string => {
+// Useful when string is huge and we want to test both ends of the string
+// For example, test abc...xyz instead of the full abcdef... string, Since we only care about the start/end
+const truncateMiddle = (str: string, width: number) => {
+  if (str.length <= width) {
+    return str;
+  }
+
+  const start = Math.ceil(width / 2);
+  const end = Math.floor(width / 2);
+
+  return str.substring(0, start) + str.substring(str.length - end);
+};
+
+export const generateCharactersFromRange = (start: string, end: string, width?: number): string => {
   const startCode = start.charCodeAt(0);
   const endCode = end.charCodeAt(0);
   const length = endCode - startCode + 1;
-  return Array.from({ length }, (_, i) => String.fromCharCode(startCode + i)).join('');
+  const fullStr = Array.from({ length }, (_, i) => String.fromCharCode(startCode + i)).join('');
+
+  if (typeof width === 'number') {
+    return truncateMiddle(fullStr, width);
+  }
+
+  return fullStr;
 };
 
-export const generateCharactersFromRanges = (ranges: UnicodeRange[]): string => {
+export const generateCharactersFromRanges = (ranges: UnicodeRange[], width?: number): string => {
   return ranges.reduce((acc, range) => {
-    return acc + generateCharactersFromRange(range.start, range.end);
+    return acc + generateCharactersFromRange(range.start, range.end, width);
   }, '');
 };
 

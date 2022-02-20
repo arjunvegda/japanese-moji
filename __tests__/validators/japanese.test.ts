@@ -9,6 +9,10 @@ import {
   MockKatakanaRange,
   MockRareKanjiRange,
   MockHalfWidthKatakana,
+  MockFullWidthUpperCaseRange,
+  MockFullWidthLowerCaseRange,
+  MockFullWidthNumbersRange,
+  MockFullWidthPunctuationsRange,
 } from '../constants';
 
 describe('validator - Japanese', () => {
@@ -21,24 +25,28 @@ describe('validator - Japanese', () => {
     MockHiraganaRange,
     MockCJKPunctuationsRange,
     MockHalfWidthKatakana,
+    MockFullWidthUpperCaseRange,
+    MockFullWidthLowerCaseRange,
+    MockFullWidthNumbersRange,
+    ...MockFullWidthPunctuationsRange,
   ]);
 
   const invalidString = getRandomString(500);
 
   describe('isValidJapanese', () => {
-    test('should return true when only Kanji characters are supplied', () => {
+    test('should return true when only Japanese characters are supplied', () => {
       const result = isValidJapanese(fullJapaneseString);
       expect(result).toBe(true);
     });
 
-    test('should return false when only Kanji and non Kanji characters are supplied', () => {
+    test('should return false when only Japanese and non Japanese characters are supplied', () => {
       const result = isValidJapanese(fullJapaneseString + invalidString);
       expect(result).toBe(false);
     });
   });
 
   describe('isValidJapanesePresent', () => {
-    test('should return true when only Kanji characters are supplied', () => {
+    test('should return true when only Japanese characters are supplied', () => {
       const result = isJapanesePresent(fullJapaneseString);
       expect(result).toBe(true);
     });
@@ -54,19 +62,20 @@ describe('validator - Japanese', () => {
     });
   });
 
-  describe('howMuchKanjiPresent', () => {
-    test('should return 100 when only Kanji characters are supplied', () => {
+  describe('howMuchJapanesePresent', () => {
+    test('should return 100 when only Japanese characters are supplied', () => {
       const result = howMuchJapaneseIsPresent(fullJapaneseString);
       expect(result).toBe(100);
     });
 
-    test('should return 98 when only Kanji characters are supplied', () => {
-      const result = +howMuchJapaneseIsPresent(invalidString + fullJapaneseString);
-      expect(toFixedNumber(result)).toBe(98);
+    test('should return 98 when only Japanese characters are supplied', () => {
+      const result = howMuchJapaneseIsPresent(invalidString + fullJapaneseString);
+      // Precision is important here since the length of the string is huge
+      expect(toFixedNumber(result, 3)).toBe(98.276);
     });
 
-    test('should return 0 when no Kanji characters are supplied', () => {
-      const result = +howMuchJapaneseIsPresent(invalidString);
+    test('should return 0 when no Japanese characters are supplied', () => {
+      const result = howMuchJapaneseIsPresent(invalidString);
       expect(toFixedNumber(result)).toBe(0);
     });
   });

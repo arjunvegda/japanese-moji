@@ -85,7 +85,8 @@ const howMuchKanaIsPresentResult = howMuchKanaIsPresent('some string here');
 ### Japanese
 
 Validates CJK punctuations, Hiragana, Katakana, Katakana phonetic extensions, Rare Kanji, Common and
-Uncommon Kanji, Kanji compatibility ideographs, and Half-width Katakana forms
+Uncommon Kanji, Kanji compatibility ideographs, Half-width Katakana forms, and Full-width (roman)
+forms including punctuations
 
 ```ts
 import { isValidJapanese, isJapanesePresent, howMuchJapaneseIsPresent } from 'japanese-moji';
@@ -112,6 +113,10 @@ enum CharacterSet {
   KanjiCompatibilityIdeographs = 'KanjiCompatibilityIdeographs',
   CommonUncommonKanji = 'CommonUncommonKanji',
   HalfWidthKatakana = 'HalfWidthKatakana',
+  FullWidthUpperCase = 'FullWidthUpperCase',
+  FullWidthLowerCase = 'FullWidthLowerCase',
+  FullWidthNumbers = 'FullWidthNumbers',
+  FullWidthPunctuations = 'FullWidthPunctuations',
 }
 
 interface UnicodeRange {
@@ -172,6 +177,10 @@ const options: CreateValidatorOptions = {
     CharacterSet.CommonUncommonKanji,
     CharacterSet.KanjiCompatibilityIdeographs,
     CharacterSet.HalfWidthKatakana,
+    CharacterSet.FullWidthUpperCase,
+    CharacterSet.FullWidthLowerCase,
+    CharacterSet.FullWidthNumbers,
+    CharacterSet.FullWidthPunctuations,
   ],
   customRanges, // Optional
   customUnicodes, // Optional
