@@ -15,7 +15,7 @@ export const createStrictValidator = (options: CreateValidatorOptions): StrictVa
   const finalRegexPattern = makeString('^', regexGroup, '+$');
 
   const customValidator = (str: string): boolean => {
-    const regexExp = new RegExp(finalRegexPattern, 'i');
+    const regexExp = new RegExp(finalRegexPattern, 'ui');
     return regexExp.test(str);
   };
 
