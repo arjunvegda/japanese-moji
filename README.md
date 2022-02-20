@@ -13,6 +13,9 @@
     <a href="https://bundlephobia.com/package/japanese-moji">
       <img src="https://badgen.net/bundlephobia/dependency-count/japanese-moji?color=green"/>
     </a>
+    <a href="https://bundlephobia.com/package/japanese-moji">
+      <img src="https://badgen.net/bundlephobia/tree-shaking/japanese-moji"/>
+    </a>
     <a href="https://codecov.io/gh/arjunvegda/japanese-moji">
       <img src="https://codecov.io/gh/arjunvegda/japanese-moji/branch/main/graph/badge.svg?token=GZ8GBUVYD8"/>
     </a>
