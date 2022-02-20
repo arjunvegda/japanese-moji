@@ -32,6 +32,7 @@ The word "Moji" translates to "Character" in English
   - [Kanji](#kanji)
   - [Kana](#kana)
   - [Japanese](#japanese)
+- [Types summary](#-types-summary)
 - [Build Your Own Validators](#-build-your-own-validators)
 - [Recipes](#-recipes)
 - [Contributing](#-contributing)
@@ -122,7 +123,7 @@ const isJapanesePresentResult = isJapanesePresent('some string here', 90);
 const howMuchJapaneseIsPresentResult = howMuchJapaneseIsPresent('some string here');
 ```
 
-### 📝 Types summary
+## 📝 Types summary
 
 ```ts
 enum CharacterSet {
