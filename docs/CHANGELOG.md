@@ -1,3 +1,10 @@
+# [1.1.0-next.1](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0...v1.1.0-next.1) (2022-02-20)
+
+
+### Features
+
+* add full width characters ([#36](https://github.com/arjunvegda/japanese-moji/issues/36)) ([13c162b](https://github.com/arjunvegda/japanese-moji/commit/13c162bf76ec092b4a4bcf89cf291382fa338070))
+
 # 1.0.0 (2022-02-12)
 
 
