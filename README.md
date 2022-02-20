@@ -1,5 +1,7 @@
 <p align="center">
-    <img alt="Japanese Moji Logo" src="./docs/logo-light.svg">
+    <a href="https://japanese-moji.vercel.app">
+        <img alt="Japanese Moji Logo" src="./docs/logo-light.svg">
+  </a>
 </p>
 <p align="center">
     <a href="https://www.npmjs.com/package/japanese-moji">
@@ -21,7 +23,7 @@
 
 The word "Moji" translates to "Character" in English
 
-## 🚀 Features
+## ✨ Features
 
 - Very small footprint with zero dependencies
 - Supports strict and threshold-based validation for Kanji, Kana, and all the Japanese characters
@@ -31,6 +33,11 @@ The word "Moji" translates to "Character" in English
 - Supports custom single Unicode and Unicode ranges out-of-the-box
 - 100% TypeScript friendly
 - ESM, CJS, and UMD builds
+- Only pay for what you use this library is fully tree-shakable
+
+## 🚀 Demo
+
+Live demos are on this [website](https://japanese-moji.vercel.app)
 
 ## 📦 Install
 
