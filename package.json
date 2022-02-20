@@ -4,6 +4,7 @@
   "description": "A toolkit to validate Japanese characters",
   "type": "module",
   "packageManager": "yarn@3.1.1",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/arjunvegda/japanese-moji.git"
