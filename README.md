@@ -5,7 +5,7 @@
 </p>
 <p align="center">
     <a href="https://www.npmjs.com/package/japanese-moji">
-      <img src="https://badgen.net/github/release/arjunvegda/japanese-moji"/>
+      <img src="https://badgen.net/github/release/arjunvegda/japanese-moji/stable"/>
     </a>
     <a href="https://bundlephobia.com/package/japanese-moji">
       <img src="https://badgen.net/bundlephobia/minzip/japanese-moji?color=green"/>
@@ -23,6 +23,20 @@
 
 The word "Moji" translates to "Character" in English
 
+**Table of Contents**
+
+- [Features](#-features)
+- [Demo](#-demo)
+- [Install](#-install)
+- [Quick start](#-quick-start)
+  - [Kanji](#kanji)
+  - [Kana](#kana)
+  - [Japanese](#japanese)
+- [Build Your Own Validators](#-build-your-own-validators)
+- [Recipes](#-recipes)
+- [Contributing](#-contributing)
+- [Changelog](#-changelog)
+
 ## ✨ Features
 
 - Very small footprint with zero dependencies
@@ -33,7 +47,7 @@ The word "Moji" translates to "Character" in English
 - Supports custom single Unicode and Unicode ranges out-of-the-box
 - 100% TypeScript friendly
 - ESM, CJS, and UMD builds
-- Only pay for what you use this library is fully tree-shakable
+- Only pay for what you use — its fully tree-shakable
 
 ## 🚀 Demo
 
@@ -207,6 +221,16 @@ const isCustomPresentResult = isCustomPresent('some string here', 90);
 const howMuchIsCustomPresentResult = howMuchIsCustomPresent('some string here');
 ```
 
-### 📄 Changelog
+## 📚 Recipes
+
+Find code snippets containing variety of combinations that makes creating custom validators easy in
+[docs/RECIPES.md](./docs/RECIPES.md)
+
+## 🙌 Contributing
+
+Find contribution guides, code convention, release flows etc. in
+[CONTRIBUTING.md](./CONTRIBUTING.md)
+
+## 📄 Changelog
 
 Full change log available in the [docs/CHANGELOG.md](./docs/CHANGELOG.md)
