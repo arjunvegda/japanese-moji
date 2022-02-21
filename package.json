@@ -40,7 +40,8 @@
       "require": "./dist/japanese-moji.cjs",
       "import": "./dist/japanese-moji.modern.js",
       "umd": "./dist/japanese-moji.umd.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "main": "./dist/japanese-moji.cjs",
   "module": "./dist/japanese-moji.module.js",
