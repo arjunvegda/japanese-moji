@@ -5,16 +5,16 @@
 </p>
 <p align="center">
     <a href="https://www.npmjs.com/package/japanese-moji">
-      <img src="https://badgen.net/github/release/arjunvegda/japanese-moji/stable"/>
+      <img src="https://badgen.net/github/release/arjunvegda/japanese-moji/stable?cache=300"/>
     </a>
     <a href="https://bundlephobia.com/package/japanese-moji">
-      <img src="https://badgen.net/bundlephobia/minzip/japanese-moji?color=green"/>
+      <img src="https://badgen.net/bundlephobia/minzip/japanese-moji@latest?cache=300&color=green"/>
     </a>
     <a href="https://bundlephobia.com/package/japanese-moji">
-      <img src="https://badgen.net/bundlephobia/dependency-count/japanese-moji?color=green"/>
+      <img src="https://badgen.net/bundlephobia/dependency-count/japanese-moji@latest?cache=300&color=green"/>
     </a>
     <a href="https://bundlephobia.com/package/japanese-moji">
-      <img src="https://badgen.net/bundlephobia/tree-shaking/japanese-moji"/>
+      <img src="https://badgen.net/bundlephobia/tree-shaking/japanese-moji@latest?cache=300"/>
     </a>
     <a href="https://codecov.io/gh/arjunvegda/japanese-moji">
       <img src="https://codecov.io/gh/arjunvegda/japanese-moji/branch/main/graph/badge.svg?token=GZ8GBUVYD8"/>
@@ -49,11 +49,11 @@ The word "Moji" translates to "Character" in English
 - Supports strict and threshold-based validation for Kanji, Kana, and all the Japanese characters
   including punctuations
 - Exports easy to use score calculator for Kanji, Kana, and the rest of the Japanese characters
-- Easy to extend with customizable options and build-your-own validators
-- Supports custom single Unicode and Unicode ranges out-of-the-box
+- Easy to extend with customizable options and custom validator creators
+- Supports both custom single Unicode and Unicode ranges out-of-the-box
 - 100% TypeScript friendly
 - ESM, CJS, and UMD builds
-- Only pay for what you use — its fully tree-shakable
+- Only pay for what you use — it is fully tree-shakable
 
 ## 📦 Install
 
@@ -165,7 +165,10 @@ type MatchScoreCalculator = (arg: string) => number;
 
 ## 🛠 Build Your Own Validators
 
-You could create your own validators too, should the existing validators not suffice your case.
+You could create custom validators too, should the existing validators not fit your use case.
+
+There are also ready-to-use, copy-pastable code snippets that may fit your use cases
+[here](./docs/RECIPES.md)
 
 ```ts
 import {
