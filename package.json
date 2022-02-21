@@ -64,8 +64,7 @@
     "release": "semantic-release"
   },
   "engines": {
-    "node": "^14.13.1 || >=16.0.0",
-    "yarn": ">=3"
+    "node": ">=12.22.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
