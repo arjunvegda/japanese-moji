@@ -1,3 +1,10 @@
+# [1.1.0-next.4](https://github.com/arjunvegda/japanese-moji/compare/v1.1.0-next.3...v1.1.0-next.4) (2022-02-21)
+
+
+### Bug Fixes
+
+* trigger build, empty commit ([#45](https://github.com/arjunvegda/japanese-moji/issues/45)) ([96d3c03](https://github.com/arjunvegda/japanese-moji/commit/96d3c0369aadee560cc6aee1742e977a31e2a718))
+
 # [1.1.0-next.3](https://github.com/arjunvegda/japanese-moji/compare/v1.1.0-next.2...v1.1.0-next.3) (2022-02-21)
 
 
