@@ -1,11 +1,13 @@
 name: Lint & Test
 on:
   push:
-    paths-ignore:
-      - 'website/**'
+    paths:
+      - '**'
+      - '!website/**'
   pull_request:
-    paths-ignore:
-      - 'website/**'
+    paths:
+      - '**'
+      - '!website/**'
 
 jobs:
   test:
