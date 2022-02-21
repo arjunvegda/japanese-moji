@@ -1,5 +1,10 @@
 # 📚 Recipes
 
+<a href="https://japanese-moji.vercel.app/demos#custom-recipes">
+    <img src="https://img.shields.io/badge/demos-%F0%9F%9A%80-green" alt="Demo" />
+</a>
+<br/>
+
 A collection of code snippets to make creating
 [custom validators](../README.md#-build-your-own-validators) easy. These recipes could be supplied
 to create custom validators. [Kana](../README.md#kana), [Kanji](../README.md#kanji) and
@@ -43,6 +48,10 @@ const howMuchIsCustomPresent: MatchScoreCalculator = createMatchScoreCalculator(
 
 ## Hiragana
 
+<a href="https://japanese-moji.vercel.app/demos#hiragana">
+    <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" />
+</a>
+
 ```ts
 const options: CreateValidatorOptions = {
   characterSets: [CharacterSet.Hiragana],
@@ -51,6 +60,10 @@ const options: CreateValidatorOptions = {
 
 ## Hiragana + CJK Symbols & Punctuations
 
+<a href="https://japanese-moji.vercel.app/demos#hiragana-cjk-punctuations">
+    <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" />
+</a>
+
 ```ts
 const options: CreateValidatorOptions = {
   characterSets: [CharacterSet.Hiragana, CharacterSet.CJKPunctuations],
@@ -58,6 +71,10 @@ const options: CreateValidatorOptions = {
 ```
 
 ## Hiragana + All Katakana
+
+<a href="https://japanese-moji.vercel.app/demos#hiragana-katakana">
+    <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" />
+</a>
 
 ```ts
 const options: CreateValidatorOptions = {
@@ -72,6 +89,10 @@ const options: CreateValidatorOptions = {
 
 ## Hiragana + All Kanji
 
+<a href="https://japanese-moji.vercel.app/demos#hiragana-kanji">
+    <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" />
+</a>
+
 ```ts
 const options: CreateValidatorOptions = {
   characterSets: [
@@ -85,6 +106,10 @@ const options: CreateValidatorOptions = {
 
 ## All fullwidth letters
 
+<a href="https://japanese-moji.vercel.app/demos#fullwidth-letters">
+    <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" />
+</a>
+
 ```ts
 const options: CreateValidatorOptions = {
   characterSets: [
@@ -97,6 +122,10 @@ const options: CreateValidatorOptions = {
 ```
 
 ## Latin punctuations + All Japanese
+
+<a href="https://japanese-moji.vercel.app/demos#latin-punctuations-japanese">
+    <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" />
+</a>
 
 ```ts
 // includes: " " (space), !"#$%&'()*+,-./
