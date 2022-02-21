@@ -14,7 +14,6 @@ on:
 
 jobs:
   lint-test:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
     name: Lint & Test
     runs-on: ubuntu-latest
     steps:
@@ -46,7 +45,6 @@ jobs:
         run: yarn run test:ci
 
   release:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
     needs: lint-test
     runs-on: ubuntu-latest
     steps:
