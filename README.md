@@ -1,9 +1,11 @@
 <p align="center">
-    <img alt="Japanese Moji Logo" src="./docs/logo-light.svg">
+    <a href="https://japanese-moji.vercel.app">
+        <img alt="Japanese Moji Logo" src="./docs/logo-light.svg">
+  </a>
 </p>
 <p align="center">
     <a href="https://www.npmjs.com/package/japanese-moji">
-      <img src="https://badgen.net/github/release/arjunvegda/japanese-moji"/>
+      <img src="https://badgen.net/github/release/arjunvegda/japanese-moji/stable"/>
     </a>
     <a href="https://bundlephobia.com/package/japanese-moji">
       <img src="https://badgen.net/bundlephobia/minzip/japanese-moji?color=green"/>
@@ -11,8 +13,14 @@
     <a href="https://bundlephobia.com/package/japanese-moji">
       <img src="https://badgen.net/bundlephobia/dependency-count/japanese-moji?color=green"/>
     </a>
+    <a href="https://bundlephobia.com/package/japanese-moji">
+      <img src="https://badgen.net/bundlephobia/tree-shaking/japanese-moji"/>
+    </a>
     <a href="https://codecov.io/gh/arjunvegda/japanese-moji">
       <img src="https://codecov.io/gh/arjunvegda/japanese-moji/branch/main/graph/badge.svg?token=GZ8GBUVYD8"/>
+    </a>
+    <a href="https://japanese-moji.vercel.app">
+        <img src="https://img.shields.io/badge/website-%F0%9F%8C%8E-green" alt="Website" />
     </a>
     <a href="./LICENSE">
       <img src="https://badgen.net/npm/license/japanese-moji?color=blue"/>
@@ -21,7 +29,21 @@
 
 The word "Moji" translates to "Character" in English
 
-## 🚀 Features
+**Table of Contents**
+
+- [Features](#-features)
+- [Install](#-install)
+- [Quick start](#-quick-start)
+  - [Kanji](#kanji)
+  - [Kana](#kana)
+  - [Japanese](#japanese)
+- [Types summary](#-types-summary)
+- [Build Your Own Validators](#-build-your-own-validators)
+- [Recipes](#-recipes)
+- [Contributing](#-contributing)
+- [Changelog](#-changelog)
+
+## ✨ Features
 
 - Very small footprint with zero dependencies
 - Supports strict and threshold-based validation for Kanji, Kana, and all the Japanese characters
@@ -31,6 +53,7 @@ The word "Moji" translates to "Character" in English
 - Supports custom single Unicode and Unicode ranges out-of-the-box
 - 100% TypeScript friendly
 - ESM, CJS, and UMD builds
+- Only pay for what you use — its fully tree-shakable
 
 ## 📦 Install
 
@@ -50,7 +73,9 @@ npm install --save japanese-moji
 
 ### Kanji
 
-Validates Rare Kanji, Common and Uncommon Kanji, and Kanji compatibility ideographs
+Validates Rare Kanji, Common and Uncommon Kanji, and Kanji compatibility ideographs <br/><br/>
+<a href="https://japanese-moji.vercel.app/demos#kanji">
+<img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" /> </a>
 
 ```ts
 import { isValidKanji, isKanjiPresent, howMuchKanjiIsPresent } from 'japanese-moji';
@@ -67,7 +92,9 @@ const howMuchKanjiIsPresentResult = howMuchKanjiIsPresent('some string here');
 
 ### Kana
 
-Validates Katakana, Half-width Katakana, and Katakana phonetic extensions
+Validates Katakana, Half-width Katakana, and Katakana phonetic extensions <br/><br/>
+<a href="https://japanese-moji.vercel.app/demos#kana">
+<img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" /> </a>
 
 ```ts
 import { isValidKana, isKanaPresent, howMuchKanaIsPresent } from 'japanese-moji';
@@ -85,7 +112,9 @@ const howMuchKanaIsPresentResult = howMuchKanaIsPresent('some string here');
 ### Japanese
 
 Validates CJK punctuations, Hiragana, Katakana, Katakana phonetic extensions, Rare Kanji, Common and
-Uncommon Kanji, Kanji compatibility ideographs, and Half-width Katakana forms
+Uncommon Kanji, Kanji compatibility ideographs, Half-width Katakana forms, and Full-width (roman)
+forms including punctuations <br/><br/> <a href="https://japanese-moji.vercel.app/demos#japanese">
+<img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" /> </a>
 
 ```ts
 import { isValidJapanese, isJapanesePresent, howMuchJapaneseIsPresent } from 'japanese-moji';
@@ -100,7 +129,7 @@ const isJapanesePresentResult = isJapanesePresent('some string here', 90);
 const howMuchJapaneseIsPresentResult = howMuchJapaneseIsPresent('some string here');
 ```
 
-### 📝 Types summary
+## 📝 Types summary
 
 ```ts
 enum CharacterSet {
@@ -112,6 +141,10 @@ enum CharacterSet {
   KanjiCompatibilityIdeographs = 'KanjiCompatibilityIdeographs',
   CommonUncommonKanji = 'CommonUncommonKanji',
   HalfWidthKatakana = 'HalfWidthKatakana',
+  FullWidthUpperCase = 'FullWidthUpperCase',
+  FullWidthLowerCase = 'FullWidthLowerCase',
+  FullWidthNumbers = 'FullWidthNumbers',
+  FullWidthPunctuations = 'FullWidthPunctuations',
 }
 
 interface UnicodeRange {
@@ -172,6 +205,10 @@ const options: CreateValidatorOptions = {
     CharacterSet.CommonUncommonKanji,
     CharacterSet.KanjiCompatibilityIdeographs,
     CharacterSet.HalfWidthKatakana,
+    CharacterSet.FullWidthUpperCase,
+    CharacterSet.FullWidthLowerCase,
+    CharacterSet.FullWidthNumbers,
+    CharacterSet.FullWidthPunctuations,
   ],
   customRanges, // Optional
   customUnicodes, // Optional
@@ -191,6 +228,18 @@ const isCustomPresentResult = isCustomPresent('some string here', 90);
 const howMuchIsCustomPresentResult = howMuchIsCustomPresent('some string here');
 ```
 
-### 📄 Changelog
+## 📚 Recipes
+
+Find code snippets containing variety of combinations that makes creating custom validators easy in
+[docs/RECIPES.md](./docs/RECIPES.md) <br/><br/>
+<a href="https://japanese-moji.vercel.app/demos#custom-recipes">
+<img src="https://img.shields.io/badge/demos-%F0%9F%9A%80-green" alt="Demo" /> </a>
+
+## 🙌 Contributing
+
+Find contribution guides, code convention, release flows etc. in
+[CONTRIBUTING.md](./CONTRIBUTING.md)
+
+## 📄 Changelog
 
 Full change log available in the [docs/CHANGELOG.md](./docs/CHANGELOG.md)

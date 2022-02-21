@@ -7,9 +7,13 @@ export enum CharacterSet {
   KanjiCompatibilityIdeographs = 'KanjiCompatibilityIdeographs',
   CommonUncommonKanji = 'CommonUncommonKanji',
   HalfWidthKatakana = 'HalfWidthKatakana',
+  FullWidthUpperCase = 'FullWidthUpperCase',
+  FullWidthLowerCase = 'FullWidthLowerCase',
+  FullWidthNumbers = 'FullWidthNumbers',
+  FullWidthPunctuations = 'FullWidthPunctuations',
 }
 
-export type CharacterDict = Record<CharacterSet, string>;
+export type CharacterDict = Record<CharacterSet, string | string[]>;
 
 /**
  * All the values must be escaped to be used in a regex

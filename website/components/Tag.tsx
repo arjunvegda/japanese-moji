@@ -12,6 +12,8 @@ import {
   Link,
 } from '@chakra-ui/react';
 import { FC } from 'react';
+import { analytics } from '../utils/analytics';
+import { slugify } from '../utils/slugify';
 
 interface TagProps {
   label: string;
@@ -21,9 +23,21 @@ interface TagProps {
 
 export const Tag: FC<TagProps> = ({ label, value, href }) => {
   const green = useColorModeValue('green.600', 'green.400');
+  const handleOnClick = () => {
+    analytics.track('tagClick', {
+      category: 'Home',
+      label: slugify(label),
+    });
+  };
 
   return (
-    <LinkBox border="1px" borderColor="yellow.400" rounded="md" minWidth="210px">
+    <LinkBox
+      border="1px"
+      borderColor="yellow.400"
+      rounded="md"
+      minWidth="210px"
+      onClick={handleOnClick}
+    >
       <StatGroup>
         <Stat p={5}>
           <Flex alignItems="center" justifyContent="space-between">

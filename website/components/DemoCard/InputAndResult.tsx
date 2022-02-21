@@ -10,24 +10,32 @@ import {
   InputGroup,
   FormLabel,
   Input,
+  NumberInputField,
+  NumberInput,
+  HStack,
 } from '@chakra-ui/react';
 import { MatchScoreCalculator, StrictValidator, ThresholdBasedValidator } from 'japanese-moji';
 import { FC, useEffect, useState } from 'react';
+import { analytics } from '../../utils/analytics';
 
 export interface InputAndResultProps {
   initialValue?: string;
-  threshold?: number;
+  initialThreshold?: number;
   isValid: StrictValidator;
   isPresent: ThresholdBasedValidator;
   howMuchIsPresent: MatchScoreCalculator;
+  onUserInput?: () => void;
+  onUserThresholdInput?: () => void;
 }
 
 export const InputAndResult: FC<InputAndResultProps> = ({
   initialValue = '',
-  threshold = 85,
+  initialThreshold = 85,
   isValid,
   isPresent,
   howMuchIsPresent,
+  onUserInput = () => {},
+  onUserThresholdInput = () => {},
 }) => {
   const borderColor = useColorModeValue('gray.300', 'gray.700');
   const green = useColorModeValue('green.600', 'green.400');
@@ -42,6 +50,7 @@ export const InputAndResult: FC<InputAndResultProps> = ({
   };
 
   const [input, setInput] = useState(initialValue);
+  const [userInputThreshold, setUserInputThreshold] = useState<string>(initialThreshold.toString());
   const [validationState, setValidationState] = useState({
     isValidStrict: false,
     isPresent: false,
@@ -51,26 +60,46 @@ export const InputAndResult: FC<InputAndResultProps> = ({
   useEffect(() => {
     setValidationState(() => ({
       isValidStrict: isValid(input),
-      isPresent: isPresent(input, threshold),
+      isPresent: isPresent(input, +userInputThreshold),
       score: howMuchIsPresent(input),
     }));
-  }, [input, isValid, isPresent, howMuchIsPresent, setValidationState, threshold]);
+  }, [input, isValid, isPresent, howMuchIsPresent, setValidationState, userInputThreshold]);
 
+  const computedThreshold = Math.max(0, Math.min(100, +userInputThreshold || 0));
   return (
     <>
-      <FormControl my={5}>
-        <FormLabel htmlFor="input">Your input</FormLabel>
-
-        <InputGroup size="sm">
-          <Input
-            id="input"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Type something here..."
-            rounded="sm"
-          />
-        </InputGroup>
-      </FormControl>
+      <HStack spacing={5}>
+        <FormControl my={5} flex="95">
+          <FormLabel htmlFor="input">Your input</FormLabel>
+          <InputGroup size="sm">
+            <Input
+              id="input"
+              value={input}
+              onChange={(e) => {
+                setInput(e.target.value);
+                onUserInput();
+              }}
+              placeholder="Type something here..."
+              rounded="sm"
+            />
+          </InputGroup>
+        </FormControl>
+        <FormControl flex="5">
+          <FormLabel htmlFor="input">Threshold</FormLabel>
+          <InputGroup size="sm">
+            <NumberInput
+              value={userInputThreshold}
+              onChange={(str) => {
+                setUserInputThreshold(str);
+                onUserThresholdInput();
+              }}
+              clampValueOnBlur={false}
+            >
+              <NumberInputField rounded="sm" />
+            </NumberInput>
+          </InputGroup>
+        </FormControl>
+      </HStack>
 
       <SimpleGrid columns={[1, null, 3]} spacing={6}>
         <StatGroup {...borderStyles}>
@@ -100,7 +129,7 @@ export const InputAndResult: FC<InputAndResultProps> = ({
               )}
             </StatNumber>
             <Text fontSize="sm" color={helpTextColor}>
-              {threshold}% threshold
+              {computedThreshold}% threshold
             </Text>
           </Stat>
         </StatGroup>
@@ -110,7 +139,7 @@ export const InputAndResult: FC<InputAndResultProps> = ({
               Score
             </StatLabel>
             <StatNumber>
-              {validationState.score >= threshold ? (
+              {validationState.score >= computedThreshold ? (
                 <Text color={green}>{validationState.score.toFixed(2)}%</Text>
               ) : (
                 <Text color={red}>{validationState.score.toFixed(2)}%</Text>

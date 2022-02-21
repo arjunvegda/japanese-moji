@@ -27,6 +27,7 @@ export const theme = extendTheme({
         // backgroundColor: 'white',
         background: props.colorMode === 'dark' ? 'var(--chakra-colors-gray-900)' : '#ffffff',
         color: props.colorMode === 'dark' ? 'gray.200' : 'gray.800',
+        scrollBehavior: 'smooth',
       },
       ':host,:root': {
         '--chakra-ui-focus-ring-color': 'var(--chakra-colors-yellow-400)',
@@ -35,6 +36,13 @@ export const theme = extendTheme({
   },
   components: {
     Input: {
+      variants: {
+        outline: focusColorFieldOverride,
+        filled: focusColorFieldOverride,
+        flushed: focusColorFieldOverride,
+      },
+    },
+    NumberInput: {
       variants: {
         outline: focusColorFieldOverride,
         filled: focusColorFieldOverride,

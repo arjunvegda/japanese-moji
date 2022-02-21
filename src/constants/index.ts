@@ -8,6 +8,10 @@ import {
   KatakanaPhoneticExtension,
   RareKanji,
   KanjiCompatibilityIdeographs,
+  FullWidthPunctuations,
+  FullWidthLowerCase,
+  FullWidthUpperCase,
+  FullWidthNumbers,
 } from './built-ranges';
 
 export const characterSetMap: Readonly<CharacterDict> = Object.freeze({
@@ -19,6 +23,10 @@ export const characterSetMap: Readonly<CharacterDict> = Object.freeze({
   [CharacterSet.KanjiCompatibilityIdeographs]: KanjiCompatibilityIdeographs,
   [CharacterSet.CommonUncommonKanji]: CommonUncommonKanji,
   [CharacterSet.HalfWidthKatakana]: HalfWidthKatakana,
+  [CharacterSet.FullWidthUpperCase]: FullWidthUpperCase,
+  [CharacterSet.FullWidthLowerCase]: FullWidthLowerCase,
+  [CharacterSet.FullWidthNumbers]: FullWidthNumbers,
+  [CharacterSet.FullWidthPunctuations]: FullWidthPunctuations,
 });
 
 export const defaultValidationThreshold = 85;

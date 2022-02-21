@@ -17,5 +17,5 @@ export const createRange = (start: string, end: string): string => {
     return '';
   }
 
-  return makeString('[', start, '-', end, ']');
+  return makeString(start, '-', end);
 };

@@ -6,19 +6,21 @@ export const createRegexGroups = (
   characterSets: CharacterSet[],
   customRanges: string[],
 ) => {
-  const mappedStrings = characterSets.map((key: CharacterSet) => {
+  const mappedStrings: string[] = [];
+  for (let i = 0; i < characterSets.length; i++) {
+    const key = characterSets[i];
     const foundSet = characterSetMap[key];
 
-    if (!foundSet) {
-      return '';
+    if (foundSet) {
+      if (Array.isArray(foundSet)) {
+        mappedStrings.push(...foundSet);
+      } else {
+        mappedStrings.push(foundSet);
+      }
     }
+  }
 
-    return makeString(foundSet);
-  });
-
-  const finalCharacterRanges = mappedStrings.filter(Boolean);
-  finalCharacterRanges.push(...customRanges);
-  const joinByOr = finalCharacterRanges.join('|');
-
-  return makeString('(', joinByOr, ')');
+  mappedStrings.push(...customRanges);
+  const joinStr = mappedStrings.join('');
+  return makeString('[', joinStr, ']');
 };
