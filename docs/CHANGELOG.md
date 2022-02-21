@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0...v1.1.0) (2022-02-21)
+
+
+### Bug Fixes
+
+* trigger build, empty commit ([#45](https://github.com/arjunvegda/japanese-moji/issues/45)) ([96d3c03](https://github.com/arjunvegda/japanese-moji/commit/96d3c0369aadee560cc6aee1742e977a31e2a718))
+
+
+### Features
+
+* add full width characters ([#36](https://github.com/arjunvegda/japanese-moji/issues/36)) ([13c162b](https://github.com/arjunvegda/japanese-moji/commit/13c162bf76ec092b4a4bcf89cf291382fa338070))
+* add support for node >=12.22.0 and remove yarn from engine ([#40](https://github.com/arjunvegda/japanese-moji/issues/40)) ([5b23783](https://github.com/arjunvegda/japanese-moji/commit/5b23783146ad52182f891a38f87a605836ca05e2))
+* allow importing package.json ([#38](https://github.com/arjunvegda/japanese-moji/issues/38)) ([36198a9](https://github.com/arjunvegda/japanese-moji/commit/36198a91b8c9480987125893f8b3dcbc3646b107))
+
 # [1.1.0-next.4](https://github.com/arjunvegda/japanese-moji/compare/v1.1.0-next.3...v1.1.0-next.4) (2022-02-21)
 
 
