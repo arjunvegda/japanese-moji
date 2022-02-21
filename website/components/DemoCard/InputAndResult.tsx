@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { MatchScoreCalculator, StrictValidator, ThresholdBasedValidator } from 'japanese-moji';
 import { FC, useEffect, useState } from 'react';
+import { analytics } from '../../utils/analytics';
 
 export interface InputAndResultProps {
   initialValue?: string;
@@ -23,6 +24,8 @@ export interface InputAndResultProps {
   isValid: StrictValidator;
   isPresent: ThresholdBasedValidator;
   howMuchIsPresent: MatchScoreCalculator;
+  onUserInput?: () => void;
+  onUserThresholdInput?: () => void;
 }
 
 export const InputAndResult: FC<InputAndResultProps> = ({
@@ -31,6 +34,8 @@ export const InputAndResult: FC<InputAndResultProps> = ({
   isValid,
   isPresent,
   howMuchIsPresent,
+  onUserInput = () => {},
+  onUserThresholdInput = () => {},
 }) => {
   const borderColor = useColorModeValue('gray.300', 'gray.700');
   const green = useColorModeValue('green.600', 'green.400');
@@ -70,7 +75,10 @@ export const InputAndResult: FC<InputAndResultProps> = ({
             <Input
               id="input"
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={(e) => {
+                setInput(e.target.value);
+                onUserInput();
+              }}
               placeholder="Type something here..."
               rounded="sm"
             />
@@ -81,7 +89,10 @@ export const InputAndResult: FC<InputAndResultProps> = ({
           <InputGroup size="sm">
             <NumberInput
               value={userInputThreshold}
-              onChange={(str) => setUserInputThreshold(str)}
+              onChange={(str) => {
+                setUserInputThreshold(str);
+                onUserThresholdInput();
+              }}
               clampValueOnBlur={false}
             >
               <NumberInputField rounded="sm" />

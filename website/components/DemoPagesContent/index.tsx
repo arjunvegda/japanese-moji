@@ -16,8 +16,16 @@ import packageJson from 'japanese-moji/package.json';
 
 import { HeadingLink } from '../HeadingLink';
 import { CustomRecipes } from './CustomRecipes';
+import { analytics } from '../../utils/analytics';
 
 export const DemosPageContent = () => {
+  const handleOnCurrentVersionClick = () => {
+    analytics.track('usesVersionClick', {
+      category: 'Demos',
+      label: packageJson.version,
+    });
+  };
+
   return (
     <>
       <VStack mb={5} alignItems="start">
@@ -29,6 +37,7 @@ export const DemosPageContent = () => {
           <Link
             href={`https://www.npmjs.com/package/japanese-moji/v/${packageJson.version}`}
             isExternal
+            onClick={handleOnCurrentVersionClick}
           >
             v{packageJson.version}
           </Link>

@@ -5,6 +5,7 @@ import NextLink from 'next/link';
 import { Tag } from './Tag';
 import { FC } from 'react';
 import prettyBytes from 'pretty-bytes';
+import { analytics } from '../utils/analytics';
 
 interface LandingPageContentProps {
   releaseVersion: string;
@@ -16,6 +17,20 @@ export const LandingPageContent: FC<LandingPageContentProps> = ({
   gzipBundleSize,
   codeCoverage,
 }) => {
+  const handleOnDocumentationClick = () => {
+    analytics.track('buttonClick', {
+      category: 'Home',
+      label: 'documentation',
+    });
+  };
+
+  const handleOnDemosClick = () => {
+    analytics.track('buttonClick', {
+      category: 'Home',
+      label: 'documentation',
+    });
+  };
+
   return (
     <Box>
       <Center height="250px" mx="auto">
@@ -40,6 +55,7 @@ export const LandingPageContent: FC<LandingPageContentProps> = ({
             href="https://github.com/arjunvegda/japanese-moji#readme"
             target="_blank"
             rel="noreferrer"
+            onClick={handleOnDocumentationClick}
           >
             Documentation
           </Button>
@@ -52,6 +68,7 @@ export const LandingPageContent: FC<LandingPageContentProps> = ({
               size="lg"
               p={9}
               rightIcon={<ArrowForwardIcon />}
+              onClick={handleOnDemosClick}
             >
               Demos
             </Button>
