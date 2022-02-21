@@ -2740,10 +2740,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"japanese-moji@npm:^1.1.0-next.2":
-  version: 1.1.0-next.2
-  resolution: "japanese-moji@npm:1.1.0-next.2"
-  checksum: 6feed6f9d7c85c7eaca4367ab04947d1087b53e25b69d0472189783b464b0b3a8f216acae497300243fa8bd78620e2e393c0a809c553900b93c0749b14a43f25
+"japanese-moji@npm:^1.1.0-next.3":
+  version: 1.1.0-next.3
+  resolution: "japanese-moji@npm:1.1.0-next.3"
+  checksum: bf149a01e1b1c33614b6331349bd6e14c5a6df6383454657f6bd4a6402f57f26799bff95870ecbc06908c37d860186fad874ef729880f232fb4152c8ec34ed1b
   languageName: node
   linkType: hard
 
@@ -3506,7 +3506,7 @@ __metadata:
     eslint: 8.9.0
     eslint-config-next: 12.1.0
     framer-motion: ^6.2.6
-    japanese-moji: ^1.1.0-next.2
+    japanese-moji: ^1.1.0-next.3
     next: ^12.1.0
     pretty-bytes: ^6.0.0
     react: 17.0.2
