@@ -36,6 +36,7 @@ export const HeadingLink: FC<HeadingLinkProps> = ({
           id={slugifiedId}
           {...headingProps}
           style={{ position: 'relative' }}
+          scrollMarginTop={40}
         >
           {children}
           <HeadingIcon shouldShowIcon={shouldShowIcon} showCopyIcon={hasCopied} />
