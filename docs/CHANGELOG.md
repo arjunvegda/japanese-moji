@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/arjunvegda/japanese-moji/compare/v1.1.0...v1.1.1) (2022-02-21)
+
+
+### Bug Fixes
+
+* improve docs for npm ([#55](https://github.com/arjunvegda/japanese-moji/issues/55)) ([a559a89](https://github.com/arjunvegda/japanese-moji/commit/a559a89744ef17747a75ed726f7c6dfc5a641f7f))
+* trigger build, empty commit ([#54](https://github.com/arjunvegda/japanese-moji/issues/54)) ([b082bb4](https://github.com/arjunvegda/japanese-moji/commit/b082bb49c91816c147fbf1f50608ab796d80930e))
+
 ## [1.1.1-next.1](https://github.com/arjunvegda/japanese-moji/compare/v1.1.0...v1.1.1-next.1) (2022-02-21)
 
 
