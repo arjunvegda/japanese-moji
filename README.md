@@ -5,16 +5,16 @@
 </p>
 <p align="center">
     <a href="https://www.npmjs.com/package/japanese-moji">
-      <img src="https://badgen.net/github/release/arjunvegda/japanese-moji/stable"/>
+      <img src="https://badgen.net/github/release/arjunvegda/japanese-moji/stable?cache=300"/>
     </a>
     <a href="https://bundlephobia.com/package/japanese-moji">
-      <img src="https://badgen.net/bundlephobia/minzip/japanese-moji?color=green"/>
+      <img src="https://badgen.net/bundlephobia/minzip/japanese-moji@latest?cache=300&color=green"/>
     </a>
     <a href="https://bundlephobia.com/package/japanese-moji">
-      <img src="https://badgen.net/bundlephobia/dependency-count/japanese-moji?color=green"/>
+      <img src="https://badgen.net/bundlephobia/dependency-count/japanese-moji@latest?cache=300&color=green"/>
     </a>
     <a href="https://bundlephobia.com/package/japanese-moji">
-      <img src="https://badgen.net/bundlephobia/tree-shaking/japanese-moji"/>
+      <img src="https://badgen.net/bundlephobia/tree-shaking/japanese-moji@latest?cache=300"/>
     </a>
     <a href="https://codecov.io/gh/arjunvegda/japanese-moji">
       <img src="https://codecov.io/gh/arjunvegda/japanese-moji/branch/main/graph/badge.svg?token=GZ8GBUVYD8"/>
