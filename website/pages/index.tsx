@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { res } = context;
   res.setHeader(
     'Cache-Control',
-    `public, Cache-Control: max-age=432000, stale-while-revalidate=18000, stale-if-error=36000`,
+    `public, Cache-Control: max-age=3600, stale-while-revalidate=18000, stale-if-error=86400`,
   );
 
   const response = await fetchPackageInfo();

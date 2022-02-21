@@ -3,7 +3,7 @@ interface FetchVersionReturn {
 }
 
 const fetchVersion = async (): Promise<FetchVersionReturn> => {
-  const result = await fetch('https://cdn.jsdelivr.net/npm/japanese-moji/package.json')
+  const result = await fetch('https://cdn.jsdelivr.net/npm/japanese-moji@latest/package.json')
     .then((res) => res.json())
     .catch(() => {
       return { version: null };
@@ -19,7 +19,7 @@ interface FetchBundleSizeReturn {
 }
 
 const fetchBundleSize = async (): Promise<FetchBundleSizeReturn> => {
-  const result = await fetch('https://bundlephobia.com/api/size?package=japanese-moji')
+  const result = await fetch('https://bundlephobia.com/api/size?package=japanese-moji@latest')
     .then((res) => res.json())
     .catch(() => {
       return { gzip: null };
