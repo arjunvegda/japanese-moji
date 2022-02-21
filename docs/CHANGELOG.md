@@ -1,3 +1,10 @@
+# [1.1.0-next.2](https://github.com/arjunvegda/japanese-moji/compare/v1.1.0-next.1...v1.1.0-next.2) (2022-02-21)
+
+
+### Features
+
+* allow importing package.json ([#38](https://github.com/arjunvegda/japanese-moji/issues/38)) ([36198a9](https://github.com/arjunvegda/japanese-moji/commit/36198a91b8c9480987125893f8b3dcbc3646b107))
+
 # [1.1.0-next.1](https://github.com/arjunvegda/japanese-moji/compare/v1.0.0...v1.1.0-next.1) (2022-02-20)
 
 
