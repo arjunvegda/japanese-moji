@@ -2,9 +2,12 @@ import Link, { LinkProps } from 'next/link';
 import { Link as ChakraLink } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import React, { FC, useEffect } from 'react';
-import { useBoolean, chakra } from '@chakra-ui/react';
-
-export const ActiveLink: FC<LinkProps> = (props) => {
+import { useBoolean } from '@chakra-ui/react';
+import { analytics } from '../utils/analytics';
+interface ActiveLinkProps extends LinkProps {
+  onClick?: React.MouseEventHandler;
+}
+export const ActiveLink: FC<ActiveLinkProps> = ({ onClick, ...props }) => {
   const { asPath, isReady } = useRouter();
   const [isActive, setIsActive] = useBoolean(false);
 
@@ -27,7 +30,11 @@ export const ActiveLink: FC<LinkProps> = (props) => {
   }, [asPath, isReady, props.as, props.href, setIsActive]);
   return (
     <Link {...props} passHref>
-      <ChakraLink fontWeight="600" textDecoration={isActive ? 'underline' : 'none'}>
+      <ChakraLink
+        fontWeight="600"
+        textDecoration={isActive ? 'underline' : 'none'}
+        onClick={onClick}
+      >
         {props.children}
       </ChakraLink>
     </Link>
