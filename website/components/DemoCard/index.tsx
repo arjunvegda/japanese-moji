@@ -9,7 +9,7 @@ export interface DemoCardProps extends HeadingProps, InputAndResultProps {
 
 export const DemoCard: FC<DemoCardProps> = ({
   initialValue = '',
-  threshold = 85,
+  initialThreshold = 85,
   isValid,
   isPresent,
   howMuchIsPresent,
@@ -28,7 +28,7 @@ export const DemoCard: FC<DemoCardProps> = ({
         isValid={isValid}
         isPresent={isPresent}
         howMuchIsPresent={howMuchIsPresent}
-        threshold={threshold}
+        initialThreshold={initialThreshold}
         initialValue={initialValue}
       />
       <Text fontSize="sm" color={helpTextColor} mt={7}>

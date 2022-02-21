@@ -42,6 +42,13 @@ export const theme = extendTheme({
         flushed: focusColorFieldOverride,
       },
     },
+    NumberInput: {
+      variants: {
+        outline: focusColorFieldOverride,
+        filled: focusColorFieldOverride,
+        flushed: focusColorFieldOverride,
+      },
+    },
     LinkOverlay: {
       variants: {
         outline: focusColorFieldOverride,
