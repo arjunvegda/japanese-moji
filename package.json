@@ -1,6 +1,6 @@
 {
   "name": "japanese-moji",
-  "version": "1.1.0-next.1",
+  "version": "1.1.0-next.3",
   "description": "A toolkit to validate Japanese characters",
   "type": "module",
   "packageManager": "yarn@3.1.1",
@@ -44,7 +44,8 @@
       "require": "./dist/japanese-moji.cjs",
       "import": "./dist/japanese-moji.modern.js",
       "umd": "./dist/japanese-moji.umd.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "main": "./dist/japanese-moji.cjs",
   "module": "./dist/japanese-moji.module.js",
@@ -67,8 +68,7 @@
     "release": "semantic-release"
   },
   "engines": {
-    "node": "^14.13.1 || >=16.0.0",
-    "yarn": ">=3"
+    "node": ">=12.22.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
