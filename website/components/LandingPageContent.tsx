@@ -63,7 +63,7 @@ export const LandingPageContent: FC<LandingPageContentProps> = ({
         <SimpleGrid columns={[1, 2, 3, 3]} spacing={6}>
           {releaseVersion && (
             <Tag
-              label="Release"
+              label="Stable release"
               value={`v${releaseVersion}`}
               href="https://www.npmjs.com/package/japanese-moji"
             />

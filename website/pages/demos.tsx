@@ -1,9 +1,9 @@
 import { Box, Heading } from '@chakra-ui/react';
 import { globalMaxWidthBox } from '../styles/common';
-import { DemosPageContent } from '../components/DemosPageContent';
 import Head from 'next/head';
 import React from 'react';
 import { MetaTags } from '../components/MetaTags';
+import { DemosPageContent } from '../components/DemoPagesContent';
 
 const Demos = () => {
   return (
