@@ -22,7 +22,11 @@
     "typescript",
     "unified",
     "ideographs",
-    "regex"
+    "regex",
+    "utility",
+    "toolkit",
+    "fullwidth",
+    "halfwidth"
   ],
   "author": {
     "name": "Arjun Vegda",

@@ -3,7 +3,7 @@ import { Heading, HeadingProps } from './Heading';
 import { InputAndResult, InputAndResultProps } from './InputAndResult';
 import { FC } from 'react';
 
-interface DemoCardProps extends HeadingProps, InputAndResultProps {
+export interface DemoCardProps extends HeadingProps, InputAndResultProps {
   footerText?: string;
 }
 
