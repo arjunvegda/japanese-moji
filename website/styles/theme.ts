@@ -9,9 +9,6 @@ const focusColorFieldOverride = () => ({
   },
 });
 export const theme = extendTheme({
-  config: {
-    useSystemColorMode: true,
-  },
   shadows: {
     outline: '0 0 0 3px var(--chakra-colors-yellow-400)',
   },
@@ -23,8 +20,6 @@ export const theme = extendTheme({
     global: (props: any) => ({
       'html, body': {
         height: '100%',
-        // backgroundColor: 'gray.100',
-        // backgroundColor: 'white',
         background: props.colorMode === 'dark' ? 'var(--chakra-colors-gray-900)' : '#ffffff',
         color: props.colorMode === 'dark' ? 'gray.200' : 'gray.800',
         scrollBehavior: 'smooth',

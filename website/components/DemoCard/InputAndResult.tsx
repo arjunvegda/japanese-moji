@@ -129,7 +129,7 @@ export const InputAndResult: FC<InputAndResultProps> = ({
               )}
             </StatNumber>
             <Text fontSize="sm" color={helpTextColor}>
-              {computedThreshold}% threshold
+              {Math.round(computedThreshold * 100) / 100}% threshold
             </Text>
           </Stat>
         </StatGroup>

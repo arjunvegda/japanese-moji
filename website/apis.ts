@@ -3,14 +3,14 @@ interface FetchVersionReturn {
 }
 
 const fetchVersion = async (): Promise<FetchVersionReturn> => {
-  const result = await fetch('https://cdn.jsdelivr.net/npm/japanese-moji@latest/package.json')
+  const result = await fetch('https://registry.npmjs.org/-/package/japanese-moji/dist-tags')
     .then((res) => res.json())
     .catch(() => {
       return { version: null };
     });
 
   return {
-    releaseVersion: result?.version,
+    releaseVersion: result?.latest,
   };
 };
 
