@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://japanese-moji.vercel.app">
+    <a href="https://japanese-moji.arjunvegda.com">
         <img alt="Japanese Moji Logo" src="./docs/logo-light.svg">
   </a>
 </p>
@@ -19,7 +19,7 @@
     <a href="https://codecov.io/gh/arjunvegda/japanese-moji">
       <img src="https://codecov.io/gh/arjunvegda/japanese-moji/branch/main/graph/badge.svg?token=GZ8GBUVYD8"/>
     </a>
-    <a href="https://japanese-moji.vercel.app">
+    <a href="https://japanese-moji.arjunvegda.com">
         <img src="https://img.shields.io/badge/website-%F0%9F%8C%8E-green" alt="Website" />
     </a>
     <a href="./LICENSE">
@@ -74,7 +74,7 @@ npm install --save japanese-moji
 ### Kanji
 
 Validates Rare Kanji, Common and Uncommon Kanji, and Kanji compatibility ideographs <br/><br/>
-<a href="https://japanese-moji.vercel.app/demos#kanji">
+<a href="https://japanese-moji.arjunvegda.com/demos#kanji">
 <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" /> </a>
 
 ```ts
@@ -93,7 +93,7 @@ const howMuchKanjiIsPresentResult = howMuchKanjiIsPresent('some string here');
 ### Kana
 
 Validates Katakana, Half-width Katakana, and Katakana phonetic extensions <br/><br/>
-<a href="https://japanese-moji.vercel.app/demos#kana">
+<a href="https://japanese-moji.arjunvegda.com/demos#kana">
 <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" /> </a>
 
 ```ts
@@ -113,7 +113,8 @@ const howMuchKanaIsPresentResult = howMuchKanaIsPresent('some string here');
 
 Validates CJK punctuations, Hiragana, Katakana, Katakana phonetic extensions, Rare Kanji, Common and
 Uncommon Kanji, Kanji compatibility ideographs, Half-width Katakana forms, and Full-width (roman)
-forms including punctuations <br/><br/> <a href="https://japanese-moji.vercel.app/demos#japanese">
+forms including punctuations <br/><br/>
+<a href="https://japanese-moji.arjunvegda.com/demos#japanese">
 <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" /> </a>
 
 ```ts
@@ -235,7 +236,7 @@ const howMuchIsCustomPresentResult = howMuchIsCustomPresent('some string here');
 
 Find code snippets containing variety of combinations that makes creating custom validators easy in
 [docs/RECIPES.md](./docs/RECIPES.md) <br/><br/>
-<a href="https://japanese-moji.vercel.app/demos#custom-recipes">
+<a href="https://japanese-moji.arjunvegda.com/demos#custom-recipes">
 <img src="https://img.shields.io/badge/demos-%F0%9F%9A%80-green" alt="Demo" /> </a>
 
 ## 🙌 Contributing
