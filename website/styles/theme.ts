@@ -9,9 +9,6 @@ const focusColorFieldOverride = () => ({
   },
 });
 export const theme = extendTheme({
-  config: {
-    useSystemColorMode: true,
-  },
   shadows: {
     outline: '0 0 0 3px var(--chakra-colors-yellow-400)',
   },
