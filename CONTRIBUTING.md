@@ -35,7 +35,7 @@ Fork, then clone the repo:
 git clone https://github.com/your-username/japanese-moji.git
 ```
 
-This repository uses Yarn v3 to manage this pacakage and documentations. You'll need to have Yarn
+This repository uses Yarn v3 to manage this package and documentations. You'll need to have Yarn
 v1.22 installed globally on your system first, as Yarn v3 depends on that being available first.
 Install dependencies with:
 
