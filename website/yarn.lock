@@ -3039,10 +3039,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"japanese-moji@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "japanese-moji@npm:1.1.0"
-  checksum: 9cd574d8f93b9ce5568366ad768cb89b482eb11e9fa70b3561b7706ddf16daa39344d6f338deafc6fb5b8c214091f5148082ddc118d5a9703eb3417a179ae0d6
+"japanese-moji@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "japanese-moji@npm:1.1.1"
+  checksum: 02c090cb84cfc699a205ffe8804aee29e505ee04cde8197b1ff3e62d887d0f9374ed6f809ce3fccbdf6b1548a7caac7c52780d1a0a302b4243dd398000420ddd
   languageName: node
   linkType: hard
 
@@ -3920,7 +3920,7 @@ __metadata:
     eslint: 8.9.0
     eslint-config-next: 12.1.0
     framer-motion: ^6.2.6
-    japanese-moji: ^1.1.0
+    japanese-moji: ^1.1.1
     lodash.debounce: ^4.0.8
     next: ^12.1.0
     pretty-bytes: ^6.0.0

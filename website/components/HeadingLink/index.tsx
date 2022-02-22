@@ -1,10 +1,12 @@
 import NextLink from 'next/link';
 import { Link, Heading, LinkProps } from '@chakra-ui/react';
 import { HeadingProps } from '@chakra-ui/layout/src/heading';
-import { FC } from 'react';
+import { createRef, FC, useEffect, useRef } from 'react';
 import { slugify } from '../../utils/slugify';
 import { useHeadingLinkClipboard } from './useHeadingLinkClipboard';
 import { HeadingIcon } from './HeadingIcon';
+import { useRouter } from 'next/router';
+import { router } from 'next/client';
 
 export interface HeadingLinkProps extends HeadingProps {
   linkProps?: LinkProps;
@@ -18,6 +20,17 @@ export const HeadingLink: FC<HeadingLinkProps> = ({
   const slugifiedId = slugify(children as string);
   const { shouldShowIcon, showIcon, hideIcon, onCopy, hasCopied } =
     useHeadingLinkClipboard(slugifiedId);
+  const headingLinkRef = createRef<HTMLAnchorElement>();
+  const { asPath, pathname, isReady, ...res } = useRouter();
+
+  useEffect(() => {
+    // Highlight heading link when user arrives on page with anchor id
+    if (isReady) {
+      if (asPath === `${pathname}#${slugifiedId}`) {
+        headingLinkRef.current?.focus();
+      }
+    }
+  }, []);
 
   return (
     <NextLink href={`#${slugifiedId}`} passHref>
@@ -29,6 +42,7 @@ export const HeadingLink: FC<HeadingLinkProps> = ({
         onFocus={showIcon}
         onBlur={hideIcon}
         onClick={onCopy}
+        ref={headingLinkRef}
       >
         <Heading
           display="inline-flex"
