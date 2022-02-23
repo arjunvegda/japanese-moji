@@ -20,7 +20,8 @@
     "pretty-bytes": "^6.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "react-use": "^17.3.2"
   },
   "devDependencies": {
     "@types/lodash.debounce": "^4.0.6",

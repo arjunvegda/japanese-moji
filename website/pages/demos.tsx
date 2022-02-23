@@ -1,4 +1,4 @@
-import { Box, Heading } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { globalMaxWidthBox } from '../styles/common';
 import Head from 'next/head';
 import React from 'react';
