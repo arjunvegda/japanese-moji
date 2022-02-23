@@ -15,8 +15,8 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { MatchScoreCalculator, StrictValidator, ThresholdBasedValidator } from 'japanese-moji';
-import { FC, useEffect, useState } from 'react';
-import { analytics } from '../../utils/analytics';
+import { FC, useState } from 'react';
+import { useIsomorphicLayoutEffect } from 'react-use';
 
 export interface InputAndResultProps {
   initialValue?: string;
@@ -57,7 +57,7 @@ export const InputAndResult: FC<InputAndResultProps> = ({
     score: 0,
   });
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     setValidationState(() => ({
       isValidStrict: isValid(input),
       isPresent: isPresent(input, +userInputThreshold),
