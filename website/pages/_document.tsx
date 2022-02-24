@@ -7,7 +7,6 @@ export default class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head>
-          <title>Japanese Moji</title>
           <MetaTags title="Japanese Moji" />
         </Head>
         <body>

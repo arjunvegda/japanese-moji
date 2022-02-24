@@ -20,7 +20,7 @@ export const Header = () => {
 
   return (
     <React.Fragment>
-      <chakra.header w="full" px={{ base: 5 }} py={4}>
+      <chakra.header w="full" py={4}>
         <Flex
           alignItems="center"
           justifyContent="space-between"

@@ -1,6 +1,6 @@
 # 📚 Recipes
 
-<a href="https://japanese-moji.vercel.app/demos#custom-recipes">
+<a href="https://japanese-moji.arjunvegda.com/demos#custom-recipes">
     <img src="https://img.shields.io/badge/demos-%F0%9F%9A%80-green" alt="Demo" />
 </a>
 <br/>
@@ -48,7 +48,7 @@ const howMuchIsCustomPresent: MatchScoreCalculator = createMatchScoreCalculator(
 
 ## Hiragana
 
-<a href="https://japanese-moji.vercel.app/demos#hiragana">
+<a href="https://japanese-moji.arjunvegda.com/demos#hiragana">
     <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" />
 </a>
 
@@ -60,7 +60,7 @@ const options: CreateValidatorOptions = {
 
 ## Hiragana + CJK Symbols & Punctuations
 
-<a href="https://japanese-moji.vercel.app/demos#hiragana-cjk-punctuations">
+<a href="https://japanese-moji.arjunvegda.com/demos#hiragana-cjk-punctuations">
     <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" />
 </a>
 
@@ -72,7 +72,7 @@ const options: CreateValidatorOptions = {
 
 ## Hiragana + All Katakana
 
-<a href="https://japanese-moji.vercel.app/demos#hiragana-katakana">
+<a href="https://japanese-moji.arjunvegda.com/demos#hiragana-katakana">
     <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" />
 </a>
 
@@ -89,7 +89,7 @@ const options: CreateValidatorOptions = {
 
 ## Hiragana + All Kanji
 
-<a href="https://japanese-moji.vercel.app/demos#hiragana-kanji">
+<a href="https://japanese-moji.arjunvegda.com/demos#hiragana-kanji">
     <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" />
 </a>
 
@@ -106,7 +106,7 @@ const options: CreateValidatorOptions = {
 
 ## All fullwidth letters
 
-<a href="https://japanese-moji.vercel.app/demos#fullwidth-letters">
+<a href="https://japanese-moji.arjunvegda.com/demos#fullwidth-letters">
     <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" />
 </a>
 
@@ -123,7 +123,7 @@ const options: CreateValidatorOptions = {
 
 ## Latin punctuations + All Japanese
 
-<a href="https://japanese-moji.vercel.app/demos#latin-punctuations-japanese">
+<a href="https://japanese-moji.arjunvegda.com/demos#latin-punctuations-japanese">
     <img src="https://img.shields.io/badge/demo-%F0%9F%9A%80-green" alt="Demo" />
 </a>
 
