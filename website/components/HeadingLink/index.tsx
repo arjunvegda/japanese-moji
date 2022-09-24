@@ -1,6 +1,5 @@
 import NextLink from 'next/link';
-import { Link, Heading, LinkProps, useBoolean } from '@chakra-ui/react';
-import { HeadingProps } from '@chakra-ui/layout/src/heading';
+import { Link, Heading, LinkProps, useBoolean, HeadingProps } from '@chakra-ui/react';
 import { FC, useEffect } from 'react';
 import { slugify } from '../../utils/slugify';
 import { useHeadingLinkClipboard } from './useHeadingLinkClipboard';
