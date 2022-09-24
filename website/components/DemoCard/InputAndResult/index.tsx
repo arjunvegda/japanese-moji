@@ -1,35 +1,85 @@
-import {
-  Stat,
-  StatGroup,
-  StatLabel,
-  StatNumber,
-  Text,
-  SimpleGrid,
-  useColorModeValue,
-  FormControl,
-  InputGroup,
-  FormLabel,
-  Input,
-  NumberInputField,
-  NumberInput,
-  HStack,
-  InputRightElement,
-  IconButton,
-} from '@chakra-ui/react';
+import { useColorModeValue, HStack } from '@chakra-ui/react';
 import { MatchScoreCalculator, StrictValidator, ThresholdBasedValidator } from 'japanese-moji';
-import { FC, useState } from 'react';
-import { useIsomorphicLayoutEffect } from 'react-use';
-import { IoMdRefresh } from 'react-icons/io';
+import { ChangeEvent, FC, useCallback, useMemo, useState } from 'react';
+import { useIsomorphicLayoutEffect, useMethods } from 'react-use';
+import { Input } from './Input';
+import { ThresholdInput } from './ThresholdInput';
+import { Result } from './Result';
 
-export interface InputAndResultProps {
-  initialValue?: string;
-  initialThreshold?: number;
+interface Validators {
   isValid: StrictValidator;
   isPresent: ThresholdBasedValidator;
   howMuchIsPresent: MatchScoreCalculator;
+}
+
+export interface InputAndResultProps extends Validators {
+  initialValue?: string;
+  initialThreshold?: number;
   onUserInput?: () => void;
   onUserThresholdInput?: () => void;
 }
+
+interface InputAndResultState {
+  values: {
+    userInput: string;
+    userInputThreshold: string;
+  };
+  validation: {
+    isValid: boolean;
+    isPresent: boolean;
+    score: number;
+  };
+}
+
+interface CreateInitialStateOptions extends Validators {
+  initialUserInput: string;
+  initialUserInputThreshold: string;
+}
+
+const createInitialState = (opts: CreateInitialStateOptions): InputAndResultState => ({
+  values: {
+    userInput: opts.initialUserInput,
+    userInputThreshold: opts.initialUserInputThreshold,
+  },
+  validation: {
+    isValid: opts.isValid(opts.initialUserInput),
+    isPresent: opts.isPresent(opts.initialUserInput, +opts.initialUserInputThreshold),
+    score: opts.howMuchIsPresent(opts.initialUserInput),
+  },
+});
+
+const createInputResultMethods = (state: InputAndResultState) => {
+  return {
+    setUserInput: (userInput: string): InputAndResultState => {
+      return {
+        ...state,
+        values: {
+          ...state.values,
+          userInput,
+        },
+      };
+    },
+    setUserInputThreshold: (userInputThreshold: string): InputAndResultState => {
+      return {
+        ...state,
+        values: {
+          ...state.values,
+          userInputThreshold,
+        },
+      };
+    },
+    validate: (payload: Validators): InputAndResultState => {
+      return {
+        ...state,
+        validation: {
+          isValid: payload.isValid(state.values.userInput),
+          isPresent: payload.isPresent(state.values.userInput, +state.values.userInputThreshold),
+          score: payload.howMuchIsPresent(state.values.userInput),
+        },
+      };
+    },
+  };
+};
 
 export const InputAndResult: FC<InputAndResultProps> = ({
   initialValue = '',
@@ -40,144 +90,78 @@ export const InputAndResult: FC<InputAndResultProps> = ({
   onUserInput = () => {},
   onUserThresholdInput = () => {},
 }) => {
-  const borderColor = useColorModeValue('gray.300', 'gray.700');
-  const green = useColorModeValue('green.600', 'green.400');
-  const red = useColorModeValue('red.600', 'red.400');
-  const helpTextColor = useColorModeValue('gray.500', 'gray.400');
+  const [state, methods] = useMethods(
+    createInputResultMethods,
+    createInitialState({
+      initialUserInput: initialValue,
+      initialUserInputThreshold: initialThreshold.toString(),
+      isValid,
+      isPresent,
+      howMuchIsPresent,
+    }),
+  );
 
-  const borderStyles = {
-    borderBottom: { base: '1px', md: '0px' },
-    borderRight: { base: '0px', md: '1px' },
-    borderColor: { base: borderColor, md: borderColor },
-    pb: { base: 4, md: '0' },
-  };
+  const triggerValidation = useCallback(() => {
+    methods.validate({
+      isValid,
+      isPresent,
+      howMuchIsPresent,
+    });
+  }, [isValid, isPresent, howMuchIsPresent, methods]);
 
-  const [input, setInput] = useState(initialValue);
-  const [userInputThreshold, setUserInputThreshold] = useState<string>(initialThreshold.toString());
-  const [validationState, setValidationState] = useState({
-    isValidStrict: false,
-    isPresent: false,
-    score: 0,
-  });
+  const normalizedThreshold = useMemo(
+    () => Math.max(0, Math.min(100, +state.values.userInputThreshold || 0)),
+    [state.values.userInputThreshold],
+  );
 
-  useIsomorphicLayoutEffect(() => {
-    setValidationState(() => ({
-      isValidStrict: isValid(input),
-      isPresent: isPresent(input, +userInputThreshold),
-      score: howMuchIsPresent(input),
-    }));
-  }, [input, isValid, isPresent, howMuchIsPresent, setValidationState, userInputThreshold]);
+  const handleInputChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      methods.setUserInput(e.target.value);
+      triggerValidation();
+      onUserInput();
+    },
+    [methods, onUserInput, triggerValidation],
+  );
 
-  const computedThreshold = Math.max(0, Math.min(100, +userInputThreshold || 0));
+  const handleThresholdChange = useCallback(
+    (str: string) => {
+      methods.setUserInputThreshold(str);
+      triggerValidation();
+      onUserThresholdInput();
+    },
+    [methods, triggerValidation, onUserThresholdInput],
+  );
+
+  const handleInputResetButtonClick = useCallback(() => {
+    methods.setUserInput(initialValue);
+    triggerValidation();
+  }, [initialValue, methods, triggerValidation]);
+
+  const handleThresholdInputResetButtonClick = useCallback(() => {
+    methods.setUserInputThreshold(initialThreshold.toString());
+    triggerValidation();
+  }, [methods, initialThreshold, triggerValidation]);
+
   return (
-    <>
+    <form>
       <HStack spacing={5}>
-        <FormControl my={5} flex="95">
-          <FormLabel htmlFor="input">Your input</FormLabel>
-          <InputGroup size="sm">
-            <Input
-              value={input}
-              onChange={(e) => {
-                setInput(e.target.value);
-                onUserInput();
-              }}
-              placeholder="Type something here..."
-              rounded="sm"
-            />
-            <InputRightElement>
-              <IconButton
-                variant="ghost"
-                aria-label="Reset input to initial value"
-                title="Reset input to initial value"
-                size="xs"
-                p={0}
-                fontSize="md"
-                onClick={() => {
-                  setInput(initialValue);
-                }}
-                icon={<IoMdRefresh />}
-              />
-            </InputRightElement>
-          </InputGroup>
-        </FormControl>
-        <FormControl flex="5">
-          <FormLabel htmlFor="input">Threshold</FormLabel>
-          <InputGroup size="sm">
-            <NumberInput
-              value={userInputThreshold}
-              onChange={(str) => {
-                setUserInputThreshold(str);
-                onUserThresholdInput();
-              }}
-              clampValueOnBlur={false}
-            >
-              <NumberInputField rounded="sm" />
-            </NumberInput>
-            <InputRightElement>
-              <IconButton
-                variant="ghost"
-                aria-label="Reset input to initial value"
-                title="Reset input to initial value"
-                size="xs"
-                p={0}
-                fontSize="md"
-                onClick={() => {
-                  setUserInputThreshold(initialThreshold.toString());
-                }}
-                icon={<IoMdRefresh />}
-              />
-            </InputRightElement>
-          </InputGroup>
-        </FormControl>
+        <Input
+          value={state.values.userInput}
+          onUserInput={handleInputChange}
+          onInputResetButtonClick={handleInputResetButtonClick}
+        />
+        <ThresholdInput
+          value={state.values.userInputThreshold}
+          onChange={handleThresholdChange}
+          onInputResetButtonClick={handleThresholdInputResetButtonClick}
+        />
       </HStack>
-
-      <SimpleGrid columns={[1, null, 3]} spacing={6}>
-        <StatGroup {...borderStyles}>
-          <Stat>
-            <StatLabel textTransform="uppercase" fontWeight="bold" fontSize="sm">
-              is Valid?
-            </StatLabel>
-            <StatNumber>
-              {validationState.isValidStrict ? (
-                <Text color={green}>Yes</Text>
-              ) : (
-                <Text color={red}>No</Text>
-              )}
-            </StatNumber>
-          </Stat>
-        </StatGroup>
-        <StatGroup {...borderStyles}>
-          <Stat>
-            <StatLabel textTransform="uppercase" fontWeight="bold" fontSize="sm">
-              is present?
-            </StatLabel>
-            <StatNumber>
-              {validationState.isPresent ? (
-                <Text color={green}>Yes</Text>
-              ) : (
-                <Text color={red}>No</Text>
-              )}
-            </StatNumber>
-            <Text fontSize="sm" color={helpTextColor}>
-              {Math.round(computedThreshold * 100) / 100}% threshold
-            </Text>
-          </Stat>
-        </StatGroup>
-        <StatGroup>
-          <Stat>
-            <StatLabel textTransform="uppercase" fontWeight="bold" fontSize="sm">
-              Score
-            </StatLabel>
-            <StatNumber>
-              {validationState.score >= computedThreshold ? (
-                <Text color={green}>{validationState.score.toFixed(2)}%</Text>
-              ) : (
-                <Text color={red}>{validationState.score.toFixed(2)}%</Text>
-              )}
-            </StatNumber>
-          </Stat>
-        </StatGroup>
-      </SimpleGrid>
-    </>
+      <Result
+        isValid={state.validation.isValid}
+        isPresent={state.validation.isPresent}
+        score={state.validation.score}
+        normalizedThreshold={normalizedThreshold}
+      />
+    </form>
   );
 };
