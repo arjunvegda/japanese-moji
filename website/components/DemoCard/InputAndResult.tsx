@@ -13,10 +13,13 @@ import {
   NumberInputField,
   NumberInput,
   HStack,
+  InputRightElement,
+  IconButton,
 } from '@chakra-ui/react';
 import { MatchScoreCalculator, StrictValidator, ThresholdBasedValidator } from 'japanese-moji';
 import { FC, useState } from 'react';
 import { useIsomorphicLayoutEffect } from 'react-use';
+import { IoMdRefresh } from 'react-icons/io';
 
 export interface InputAndResultProps {
   initialValue?: string;
@@ -73,7 +76,6 @@ export const InputAndResult: FC<InputAndResultProps> = ({
           <FormLabel htmlFor="input">Your input</FormLabel>
           <InputGroup size="sm">
             <Input
-              id="input"
               value={input}
               onChange={(e) => {
                 setInput(e.target.value);
@@ -82,6 +84,20 @@ export const InputAndResult: FC<InputAndResultProps> = ({
               placeholder="Type something here..."
               rounded="sm"
             />
+            <InputRightElement>
+              <IconButton
+                variant="ghost"
+                aria-label="Reset input to initial value"
+                title="Reset input to initial value"
+                size="xs"
+                p={0}
+                fontSize="md"
+                onClick={() => {
+                  setInput(initialValue);
+                }}
+                icon={<IoMdRefresh />}
+              />
+            </InputRightElement>
           </InputGroup>
         </FormControl>
         <FormControl flex="5">
@@ -97,6 +113,20 @@ export const InputAndResult: FC<InputAndResultProps> = ({
             >
               <NumberInputField rounded="sm" />
             </NumberInput>
+            <InputRightElement>
+              <IconButton
+                variant="ghost"
+                aria-label="Reset input to initial value"
+                title="Reset input to initial value"
+                size="xs"
+                p={0}
+                fontSize="md"
+                onClick={() => {
+                  setUserInputThreshold(initialThreshold.toString());
+                }}
+                icon={<IoMdRefresh />}
+              />
+            </InputRightElement>
           </InputGroup>
         </FormControl>
       </HStack>
