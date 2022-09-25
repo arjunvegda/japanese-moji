@@ -28,6 +28,10 @@ export const theme = extendTheme({
       ':host,:root': {
         '--chakra-ui-focus-ring-color': 'var(--chakra-colors-yellow-400)',
       },
+      '::selection': {
+        color: 'gray.800',
+        background: props.colorMode === 'dark' ? 'yellow.400' : 'yellow.400',
+      },
     }),
   },
   components: {
